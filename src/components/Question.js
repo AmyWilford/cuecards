@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import QuestionList from "./QuestionList";
 import "./styles.css";
 
@@ -23,9 +23,10 @@ export default function Question() {
   const newQuestion = () => {
     setQuestion("");
     setAnswer("");
-    setdisplayClass("d-none");
-    getQuestion();
+    setQuestion(QuestionList[Math.floor(Math.random() * QuestionList.length)]);
+
   };
+
   return (
     <div>
       <div className="container m-5">
