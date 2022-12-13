@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-background-color: #FF7134;
-color: #FFF1E1;
-border: none;
-margin-top: 50%;
-font-size: 2rem;
-
-`
+  background-color: #ff7134;
+  color: #fff1e1;
+  border: none;
+  margin-top: 50%;
+  font-size: 2rem;
+  font-family: "Bellota Text", cursive;
+`;
 
 export default function Home() {
   let navigate = useNavigate();
@@ -20,9 +20,9 @@ export default function Home() {
 
   return (
     <div className="row d-flex justify-content-center">
-        <StyledButton className="btn" onClick={routeChange}>
-          let's study
-        </StyledButton>
+      <StyledButton className="btn" onClick={routeChange}>
+        study time
+      </StyledButton>
     </div>
   );
 }
