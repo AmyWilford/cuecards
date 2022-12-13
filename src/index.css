@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family:Verdana, Geneva, Tahoma, sans-serif
-  ;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
 }
 
 code {
