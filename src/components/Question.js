@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import QuestionList from "./QuestionList";
 import "./styles.css";
+import styled from "styled-components";
+
+const StyledCard = styled.div`
+  background-color: #EFE9E4;
+  border-radius: 5px;
+  height: 400px;
+  box-shadow: 5px 7px 5px #888888;
+  width: 75%;
+`;
+const CustomButton = styled.button`
+${'' /* background-color: #D49B72; */}
+`
 
 export default function Question() {
   const [question, setQuestion] = useState("");
@@ -24,39 +36,45 @@ export default function Question() {
     setQuestion("");
     setAnswer("");
     setQuestion(QuestionList[Math.floor(Math.random() * QuestionList.length)]);
-
   };
 
   return (
-    <div>
-      <div className="container m-5">
-        <button id="startbtn" onClick={getQuestion}>
-          start studying
-        </button>
-        <p>{question.question}</p>
-        <p>{answer}</p>
-      </div>
-      <div className="row d-flex justify-content-end">
+    <div className="container m-5">
+      <button className="btn btn-success" id="startbtn" onClick={getQuestion}>
+        start studying
+      </button>
+      <div className="row justify-content-center">
+      <StyledCard>
+        <div className=" p-5">
+          <p className="font-weight-bold">QUESTION: {question.question}</p>
+          <hr></hr>
+          <p className="font-italic">{answer}</p>
+        </div>
+      </StyledCard>
+      <div className="row d-flex justify-content-end p-2">
         <div className={displayClass}>
-          <button
-            className="btn btn-warning m-1"
+          <CustomButton
+            className="btn btn-info m-2 custom-shadow"
             id="answerbtn"
             onClick={getAnswer}
           >
             Answer
-          </button>
+          </CustomButton>
         </div>
 
         <div className={displayClass}>
-          <button
-            className="btn btn-warning m-1"
+          <CustomButton
+            className="btn btn-info m-2 custom-shadow"
             id="newQbtn"
             onClick={newQuestion}
           >
             New Question
-          </button>
+          </CustomButton>
         </div>
       </div>
+      </div>
+      
+      
     </div>
   );
 }
