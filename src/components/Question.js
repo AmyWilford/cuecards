@@ -63,7 +63,8 @@ export default function Question() {
 
       <div>
         <StyledCard>
-        <div className="d-flex justify-content-between p-2">
+        <div className="row p-2">
+          <div className = "col-sm-6 custom-alignment">
           <div className={displayClass}>
             <StyledButton
               className="btn m-2 custom-shadow"
@@ -73,7 +74,9 @@ export default function Question() {
               Answer
             </StyledButton>
           </div>
+          </div>
 
+          <div className = "col-sm-6 text-right">
           <div className={displayClass}>
             <StyledButton
               className="btn m-2 custom-shadow"
@@ -83,7 +86,9 @@ export default function Question() {
               New Question
             </StyledButton>
           </div>
+          </div>
         </div>
+ 
           <div className=" p-5">
             <p className="font-weight-bold">QUESTION: <span id="question">{question.question}</span></p>
             <hr></hr>
