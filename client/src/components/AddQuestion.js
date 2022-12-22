@@ -34,17 +34,31 @@ export default function NewQuestion() {
       console.error(err);
       return;
     });
-    setNewQuestion({ question: "", answer: "" });
+    setNewQuestion({ question: " ", answer: "" });
+    let questionInput = document.getElementById("questionInput");
+    let answerInput = document.getElementById("answerInput");
+    questionInput.value = "";
+    answerInput.value = "";
   };
   return (
     <div>
       <h1>add question</h1>
       <form>
-        <input type="text" name="question" onChange={handleChange}></input>
+        <input
+          id="questionInput"
+          type="text"
+          name="question"
+          onChange={handleChange}
+        ></input>
         <br></br>
-        <input type="text" name="answer" onChange={handleChange}></input>
+        <input
+          id="answerInput"
+          type="text"
+          name="answer"
+          onChange={handleChange}
+        ></input>
         <button type="submit" onClick={handleFormSubmit}>
-          this button
+          add question
         </button>
       </form>
     </div>

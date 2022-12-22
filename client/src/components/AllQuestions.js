@@ -31,15 +31,19 @@ export default function DBQuestion() {
 
   return (
     <div>
-      <div className="row d-flex flex-wrap">
+      <div>
         {allQuestions.map((question) => (
-          <div key={question._id} className="col-md-3 p-2">
-            <input type="hidden" name="questionID" value={question._id} />
-            <p className="text-center">{question.question}</p>
-            <button onClick={() => deleteButton(question._id)}>
-              remove questions
-            </button>
-            <button>Update question</button>
+          <div key={question._id}>
+            <div className="d-flex justify-content-around align-items-center m-2">
+              <input type="hidden" name="questionID" value={question._id} />
+              <p className="text-center">{question.question}</p>
+              <button
+                className="btn p-1"
+                onClick={() => deleteButton(question._id)}
+              ><small>x</small>
+              </button>
+              <button className="btn d-none">Update question</button>
+            </div>
           </div>
         ))}
       </div>

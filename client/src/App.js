@@ -13,8 +13,11 @@ function App() {
         <Route path='/'
         element = {<Home />}
         />
+        <Route path='/study'
+        element = {<Question />}
+        />
         <Route 
-        path='/study'
+        path='/allquestions'
         element = {<DBQuestion />}
         />
         <Route
