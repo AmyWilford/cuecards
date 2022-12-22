@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home'
 import Question from './components/Question'
+import NewQuestion from './components/AddQuestion';
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
         path='/study'
         element = {<Question />}
         />
+        <Route
+        path='/api'
+          element = {<NewQuestion/>}
+          />
       </Routes>
     </Router>
   );
