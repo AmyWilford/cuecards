@@ -1,5 +1,5 @@
 // Get all Questions
-export const getQuestions = (questionData) => {
+export const getQuestions = () => {
   return fetch("/api/study", {
     headers: {
       "Content-Type": "application/json",
