@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home'
 import Question from './components/Question'
 import NewQuestion from './components/AddQuestion';
-import DBQuestion from './components/QuestionDB';
+import DBQuestion from './components/AllQuestions';
 
 function App() {
   return (

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { createQuestion } from "../utils/API";
+// import { useNavigate } from "react-router-dom";
+// import { createQuestion } from "../utils/API";
 
 export default function NewQuestion() {
   const [newquestion, setNewQuestion] = useState({
     question: "",
     answer: "",
   });
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -34,7 +34,7 @@ export default function NewQuestion() {
       console.error(err);
       return;
     });
-    // navigate("/");
+    setNewQuestion({ question: "", answer: "" });
   };
   return (
     <div>
