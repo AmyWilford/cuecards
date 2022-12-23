@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getQuestions } from "../utils/API";
+import { Link } from "react-router-dom";
 
 export default function DBQuestion() {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -40,9 +41,12 @@ export default function DBQuestion() {
               <button
                 className="btn p-1"
                 onClick={() => deleteButton(question._id)}
-              ><small>x</small>
+              >
+                <small>x</small>
               </button>
-              <button className="btn d-none">Update question</button>
+              <Link to={question._id}>
+                <button className="btn">Update question</button>
+              </Link>
             </div>
           </div>
         ))}

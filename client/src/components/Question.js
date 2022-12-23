@@ -18,8 +18,8 @@ const StyledButton = styled.button`
 
 export default function Question() {
   // Set State for all questions (Fetched from database)
-  const [allQuestions, setAllQuestions] = useState([]);
 
+  const [allQuestions, setAllQuestions] = useState([]);
   // Set state for randomly generated question and answer
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -42,8 +42,7 @@ export default function Question() {
       let data = await response.json();
       // This will hold all questions from the database
       setAllQuestions(data);
-      const myQuestions = allQuestions
-      console.log(myQuestions)
+      console.log(allQuestions)
       setQuestion(
         allQuestions[Math.floor(Math.random() * allQuestions.length)]
       );
