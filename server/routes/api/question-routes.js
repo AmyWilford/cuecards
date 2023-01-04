@@ -10,6 +10,8 @@ const {
 
 router.route("/").get(getQuestions).post(createQuestion);
 router.route("/random").get(getRandomQuestion);
+router.route("/update").put(updateQuestion);
+
 router
   .route("/:questionId")
   .get(getSingleQuestion)

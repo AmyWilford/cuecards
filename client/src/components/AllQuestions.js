@@ -48,28 +48,45 @@ export default function DBQuestion() {
 
   return (
     <div>
-      <div>
+    <h3 className="display-5 text-center">Your Study Questions</h3>
+      <div className="table-responsive-sm">
+      <table className="table">
+  <thead>
+    <tr>
+      <th scope="col" className="w-25">Remove</th>
+      <th scope="col" className="w-50">Question</th>
+      <th scope="col" className="w-25">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
         {allQuestions.map((question) => (
-          <div key={question._id}>
-            <div className="d-flex justify-content-around align-items-center m-2">
-              <input type="hidden" name="questionID" value={question._id} />
-              <p className="text-center">{question.question}</p>
-              <button
-                className="btn p-1"
+          <tr key={question._id}>
+            {/* <div className="d-flex justify-content-around align-items-center m-2"> */}
+            <td><button
+                className="btn p-1 btn-sm"
                 onClick={() => deleteButton(question._id)}
               >
                 <small>x</small>
-              </button>
-              <Link to={question._id}>
-                <button className="btn">Update question</button>
-              </Link>
-            </div>
-          </div>
+              </button></td>
+              <td className="d-none"><input colSpan="0" type="hidden" name="questionID" value={question._id} /></td>
+              <td>{question.question}</td>
+              <td><Link to={question._id}>
+                <button className="btn btn-sm"><small>Edit</small></button>
+              </Link></td>
+             
+              
+            {/* </div> */}
+          </tr>
         ))}
+        </tbody>
+      </table>
       </div>
+      <div className="d-flex justify-content-end">
       <StyledButton className="btn" onClick={routeChangeHome}>
         Go Home
       </StyledButton>
+      </div>
+      
     </div>
   );
 }
