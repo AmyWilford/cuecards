@@ -25,6 +25,7 @@ export default function Question() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [displayClass, setdisplayClass] = useState("d-none");
+  const [answerDisplay, setAnswerDisplay] = useState("d-none");
   let navigate = useNavigate();
 
   // Establish navigation route for study break button
@@ -43,11 +44,12 @@ export default function Question() {
       let data = await response.json();
       // This will hold all questions from the database
       setQuestion(data[0]);
-      console.log(question)
+      console.log(question);
       // setQuestion(
       //   allQuestions[Math.floor(Math.random() * allQuestions.length)]
       // );
       setdisplayClass("d-block");
+      setAnswerDisplay("d-none");
     } catch (err) {
       console.error(err);
     }
@@ -67,6 +69,7 @@ export default function Question() {
   // Get answer
   const getAnswer = (event) => {
     setdisplayClass("d-block");
+    setAnswerDisplay("d-block");
     setAnswer(question.answer);
     console.log(answer);
   };
@@ -123,7 +126,7 @@ export default function Question() {
               QUESTION: <span id="question">{question.question}</span>
             </p>
             <hr></hr>
-            <p className="font-italic">{answer}</p>
+            <p className={answerDisplay}>{answer}</p>
           </div>
         </StyledCard>
       </div>
