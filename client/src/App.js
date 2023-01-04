@@ -6,6 +6,7 @@ import Question from "./components/Question";
 import NewQuestion from "./components/AddQuestion";
 import DBQuestion from "./components/AllQuestions";
 import Container from "./components/Container";
+import Update from "./components/Update";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/allquestions" element={<DBQuestion />} />
         <Route path="/api/study" element={<NewQuestion />} />
         <Route path="/container" element={<Container />} />
+        <Route path="/update" element={<Update />} />
       </Routes>
     </Router>
   );

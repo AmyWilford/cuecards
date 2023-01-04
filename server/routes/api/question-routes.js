@@ -5,9 +5,15 @@ const {
   createQuestion,
   updateQuestion,
   deleteQuestion,
+  getRandomQuestion,
 } = require("../../controllers/questionController");
 
 router.route("/").get(getQuestions).post(createQuestion);
-router.route('/:questionId').get(getSingleQuestion).delete(deleteQuestion).put(updateQuestion);
+router.route("/random").get(getRandomQuestion);
+router
+  .route("/:questionId")
+  .get(getSingleQuestion)
+  .delete(deleteQuestion)
+  .put(updateQuestion);
 
 module.exports = router;

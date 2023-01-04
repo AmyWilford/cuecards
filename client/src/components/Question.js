@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./styles.css";
 import styled from "styled-components";
 
-import { getQuestions } from "../utils/API";
+// import { getQuestions } from "../utils/API";
+import { getRandomQuestion } from "../utils/API";
 
 const StyledCard = styled.div`
   background-color: #fff1e1;
@@ -19,7 +20,7 @@ const StyledButton = styled.button`
 export default function Question() {
   // Set State for all questions (Fetched from database)
 
-  const [allQuestions, setAllQuestions] = useState([]);
+  // const [allQuestions, setAllQuestions] = useState([]);
   // Set state for randomly generated question and answer
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
@@ -33,19 +34,19 @@ export default function Question() {
   };
 
   // Function to get question from the database (using imported getQuestions from utils)
-  const getTheQuestions = async () => {
+  const getQuestion = async () => {
     try {
-      const response = await getQuestions();
+      const response = await getRandomQuestion();
       if (!response.ok) {
         throw new Error("could not fetch your questions");
       }
       let data = await response.json();
       // This will hold all questions from the database
-      setAllQuestions(data);
-      console.log(allQuestions)
-      setQuestion(
-        allQuestions[Math.floor(Math.random() * allQuestions.length)]
-      );
+      setQuestion(data);
+      console.log(question)
+      // setQuestion(
+      //   allQuestions[Math.floor(Math.random() * allQuestions.length)]
+      // );
       setdisplayClass("d-block");
     } catch (err) {
       console.error(err);
@@ -66,18 +67,18 @@ export default function Question() {
   // Get answer
   const getAnswer = (event) => {
     setdisplayClass("d-block");
-    // setAnswer(question.answer);
+    setAnswer(question.answer);
   };
 
   // Get a new question on new question button press
-  const newQuestion = () => {
-    setQuestion("");
-    setAnswer("");
-    setQuestion(allQuestions[Math.floor(Math.random() * allQuestions.length)]);
-  };
+  // const newQuestion = () => {
+  //   setQuestion("");
+  //   setAnswer("");
+  //   // setQuestion(allQuestions[Math.floor(Math.random() * allQuestions.length)]);
+  // };
   // UseEffect to get all questions on initial page load
   useEffect(() => {
-    getTheQuestions();
+    getQuestion();
   }, []);
 
   return (
@@ -108,7 +109,7 @@ export default function Question() {
                 <StyledButton
                   className="btn m-2 custom-shadow"
                   id="newQbtn"
-                  onClick={newQuestion}
+                  onClick={getQuestion}
                 >
                   New Question
                 </StyledButton>

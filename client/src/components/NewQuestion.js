@@ -2,64 +2,25 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function NewQuestion({ allQuestions }) {
-//   const [newQuestion, setQuestion] = useState("");
-  console.log(allQuestions);
-//   const getQuestion = () => {
-//   };
-
-  //   // Set state for randomly generated question and answer
-  //   const [question, setQuestion] = useState("");
-  //   const [answer, setAnswer] = useState("");
-  //   const [displayClass, setdisplayClass] = useState("d-none");
-  //   let navigate = useNavigate();
-
-  //   const routeChange = () => {
-  //     let path = `/`;
-  //     navigate(path);
-  //   };
-
-  // //   From the list of all questions, get
-  //   const getQuestion =  () => {
-  //     setQuestion(allQuestions[Math.floor(Math.random() * allQuestions.length)]);
-  //     setAnswer(question.answer);
-  //     setdisplayClass("d-block");
-  //     // return question;
-  //   };
-
-  //   // Get answer
-  //   const getAnswer = (event) => {
-  //     setdisplayClass("d-block");
-  //     // setAnswer(question.answer);
-  //   };
-
-  //   // Get a new question on new question button press
-  //   const newQuestion = () => {
-  //     setQuestion("");
-  //     setAnswer("");
-  //     setQuestion(allQuestions[Math.floor(Math.random() * allQuestions.length)]);
-  //   };
-  //   // UseEffect to get all questions on initial page load
-//   useEffect(() => {
-//     getQuestion();
-//   }, []);
+  //   const [newQuestion, setQuestion] = useState("");
+  // console.log(allQuestions[0].question);
+  //   return (
+  //     // return (
+  //     <div>
+  //       <h1> this</h1>
+  //       <div>{allQuestions}</div>
+  //     </div>
+  //   );
+  // }
 
   return (
-    // return (
     <div>
-      <h1> this</h1>
+      {allQuestions.map((question) => (
+        <div>{question.question}</div>
+      ))}
     </div>
   );
-  
 }
-
-// return (
-//     <div>
-//         {allQuestions.map((question)=>(
-//             <div>{question.question}</div>
-//         ))}
-//     </div>
-// )
-
 //   const [allQuestions, setAllQuestions] = useState([]);
 //   // Set state for randomly generated question and answer
 //   const [question, setQuestion] = useState("");

@@ -17,6 +17,14 @@ export const getSingleQuestion = (questionId) => {
     // body: JSON.stringify(questionData)
   });
 };
+
+export const getRandomQuestion = () => {
+  return fetch(`api/study/random`, {
+    headers: {
+      "Content-Type": "applications/json",
+    },
+  });
+}
 // Add Single Question
 export const createQuestion = ({ newquestion }) => {
   return fetch("/api/study", {
@@ -51,3 +59,4 @@ export const deleteQuestion = (questionId) => {
     },
   });
 };
+

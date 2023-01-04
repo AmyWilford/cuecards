@@ -7,7 +7,7 @@ module.exports = {
       .then((questions) => res.json(questions))
       .catch((err) => res.status(err));
   },
-  //get single questions
+  // get single questions
   getSingleQuestion(req, res) {
     Question.findOne({ _id: req.params.questionId })
       .then((question) => {
@@ -16,6 +16,21 @@ module.exports = {
           : res.json(question);
       })
       .catch((err) => res.status(500).json(err));
+  },
+
+  getRandomQuestion(req, res) {
+    Question.aggregate([
+      {
+        $sample: {size: 1}
+      }
+    ],
+    (err,result)=> {
+      if(err){
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(result);
+      }
+    })
   },
   // create single question
   createQuestion(req, res) {
