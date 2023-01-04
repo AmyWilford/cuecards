@@ -19,18 +19,20 @@ module.exports = {
   },
 
   getRandomQuestion(req, res) {
-    Question.aggregate([
-      {
-        $sample: {size: 1}
+    Question.aggregate(
+      [
+        {
+          $sample: { size: 1 },
+        },
+      ],
+      (err, result) => {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          res.status(200).send(result);
+        }
       }
-    ],
-    (err,result)=> {
-      if(err){
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(result);
-      }
-    })
+    );
   },
   // create single question
   createQuestion(req, res) {
@@ -67,13 +69,13 @@ module.exports = {
           : res.json({ message: "Thought has been deleted" })
       )
       .catch((err) => res.status(500).json(err));
-  // deleteQuestion(req, res) {
-  //   Question.findOneAndRemove({ _id: req.params.questionId })
-  //     .then((question) =>
-  //       !question
-  //         ? res.status(404).json({ message: "Could not delete question" })
-  //         : res.json({ message: "Thought has been deleted" })
-  //     )
-  //     .catch((err) => res.status(500).json(err));
+    // deleteQuestion(req, res) {
+    //   Question.findOneAndRemove({ _id: req.params.questionId })
+    //     .then((question) =>
+    //       !question
+    //         ? res.status(404).json({ message: "Could not delete question" })
+    //         : res.json({ message: "Thought has been deleted" })
+    //     )
+    //     .catch((err) => res.status(500).json(err));
   },
 };

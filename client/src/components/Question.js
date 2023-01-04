@@ -42,7 +42,7 @@ export default function Question() {
       }
       let data = await response.json();
       // This will hold all questions from the database
-      setQuestion(data);
+      setQuestion(data[0]);
       console.log(question)
       // setQuestion(
       //   allQuestions[Math.floor(Math.random() * allQuestions.length)]
@@ -68,6 +68,7 @@ export default function Question() {
   const getAnswer = (event) => {
     setdisplayClass("d-block");
     setAnswer(question.answer);
+    console.log(answer);
   };
 
   // Get a new question on new question button press
@@ -119,7 +120,7 @@ export default function Question() {
 
           <div className=" p-5">
             <p className="font-weight-bold">
-              {/* QUESTION: <span id="question">{question.question}</span> */}
+              QUESTION: <span id="question">{question.question}</span>
             </p>
             <hr></hr>
             <p className="font-italic">{answer}</p>
