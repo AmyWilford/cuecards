@@ -11,13 +11,18 @@ const StyledButton = styled.button`
   background-color: #ff7134;
   color: #fff1e1;
   border: none;
-  margin: 0 5rem 0 5rem;
+  margin: 0 5rem 1rem 5rem;
 `;
 
 export default function Home() {
   let navigate = useNavigate();
-  const routeChange = () => {
+  const routeChangeStudy = () => {
     let path = `/study`;
+    navigate(path);
+  };
+
+  const routeChangeAllQuestions = () => {
+    let path = `/allquestions`;
     navigate(path);
   };
 
@@ -27,8 +32,11 @@ export default function Home() {
         <img src={lightbulb} alt="lighbulb graphic"></img>
       </div>
 
-      <StyledButton className="btn" onClick={routeChange}>
+      <StyledButton className="btn" onClick={routeChangeStudy}>
         start studying
+      </StyledButton>
+      <StyledButton className="btn" onClick={routeChangeAllQuestions}>
+        view all questions
       </StyledButton>
     </div>
   );
