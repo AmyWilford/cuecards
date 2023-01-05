@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getQuestions } from "../utils/API";
 import styled from "styled-components";
+import Update from './Update';
 
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -18,6 +19,10 @@ export default function DBQuestion() {
   let navigate = useNavigate();
   const routeChangeHome = () => {
     let path = `/`;
+    navigate(path);
+  };
+  const routeChangeNewQuestion = () => {
+    let path = `/api/study`;
     navigate(path);
   };
 
@@ -48,45 +53,76 @@ export default function DBQuestion() {
 
   return (
     <div>
-    <h3 className="display-5 text-center">Your Study Questions</h3>
+      <h3 className="display-5 text-center">Your Study Questions</h3>
       <div className="table-responsive-sm">
-      <table className="table">
-  <thead>
-    <tr>
-      <th scope="col" className="w-25">Remove</th>
-      <th scope="col" className="w-50">Question</th>
-      <th scope="col" className="w-25">Edit</th>
-    </tr>
-  </thead>
-  <tbody>
-        {allQuestions.map((question) => (
-          <tr key={question._id}>
-            {/* <div className="d-flex justify-content-around align-items-center m-2"> */}
-            <td><button
-                className="btn p-1 btn-sm"
-                onClick={() => deleteButton(question._id)}
-              >
-                <small>x</small>
-              </button></td>
-              <td className="d-none"><input colSpan="0" type="hidden" name="questionID" value={question._id} /></td>
-              <td>{question.question}</td>
-              <td><Link to={question._id}>
-                <button className="btn btn-sm"><small>Edit</small></button>
-              </Link></td>
-             
-              
-            {/* </div> */}
-          </tr>
-        ))}
-        </tbody>
-      </table>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col" className="w-25">
+                Remove
+              </th>
+              <th scope="col" className="w-50">
+                Question
+              </th>
+              <th scope="col" className="w-25">
+                Edit
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {allQuestions.map((question) => (
+              <tr key={question._id}>
+                {/* <div className="d-flex justify-content-around align-items-center m-2"> */}
+                <td>
+                  <button
+                    className="btn p-1 btn-sm"
+                    onClick={() => deleteButton(question._id)}
+                  >
+                    <small>x</small>
+                  </button>
+                </td>
+                <td className="d-none">
+                  <input
+                    colSpan="0"
+                    type="hidden"
+                    name="questionID"
+                    value={question._id}
+                  />
+                </td>
+                <td>{question.question}</td>
+                <td>
+                  {/* <Link to="/update">
+                    <button className="btn btn-sm">
+                      <small>Edit</small>
+                    </button>
+                  </Link> */}
+                  <Update questionId = {question._id} question = {question.question} answer = {question.answer}/>
+                  <button
+                    type="button"
+                    className="btn btn-sm"
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                  >
+                    edit
+                  </button>
+                </td>
+
+                {/* </div> */}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <div className="d-flex justify-content-end">
-      <StyledButton className="btn" onClick={routeChangeHome}>
-        Go Home
-      </StyledButton>
+        <StyledButton className="btn" onClick={routeChangeNewQuestion}>
+          Add Question
+        </StyledButton>
       </div>
-      
+      <div className="d-flex justify-content-end">
+        <StyledButton className="btn" onClick={routeChangeHome}>
+          Go Home
+        </StyledButton>
+      </div>
     </div>
   );
 }
