@@ -30,6 +30,35 @@ try {
     console.error(err);
 }
 }
+
+const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+    console.log(form.question);
+    console.log(form.answer);
+  };
+
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const response = { ...form };
+    console.log(response);
+    await fetch(`/api/study/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(response),
+    }).catch((err) => {
+      console.log(err);
+      return;
+    });
+    navigate("/allquestions");
+  };
+
 useEffect(() => {
     getQuestionToEdit();
   }, []);
@@ -87,6 +116,49 @@ useEffect(() => {
             <p>I am newupdate</p>
             <p>{form.question}</p>
             <p>{form.answer}</p>
+
+            <form onSubmit={handleFormSubmit} autoComplete="off">
+                {/* <div className="form-row">
+                  <div className="form-group col-md-8">
+                    <input
+                      type="hidden"
+                      className="form-control"
+                      name="questionId"
+                      id="inputFirstName"
+                      value={formState.questionId}
+                    />
+                  </div>
+                </div> */}
+                <div className="form-row">
+                  <div className="form-group col-md-8">
+                    <label htmlFor="questionInput">Question</label>
+                    <input
+                      type="text"
+                      id="questionInput"
+                      className="form-control"
+                      name="question"
+                      value={form.question}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <div className="form-row">
+                  <div className="form-group col-md-8">
+                    <label htmlFor="answerInput">Answer</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="answer"
+                      id="answerInput"
+                      value={form.answer}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Save changes
+                </button>
+              </form>
         </div>
     )
 }
