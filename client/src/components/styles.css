@@ -7,6 +7,16 @@
     color: #fff1e1;
     border: none;
 }
+
+.custom-col-width-edit {
+    width: 15%
+}
+.custom-col-width-question {
+    width: 80%;
+}
+.custom-col-width-delete {
+    width: 5%;
+}
 @media only screen and (max-width: 576px) {
     .custom-alignment {
         text-align:right;

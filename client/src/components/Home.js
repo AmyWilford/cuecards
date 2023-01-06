@@ -26,18 +26,26 @@ export default function Home() {
     navigate(path);
   };
 
+  const routeChangeNewQuestion = () => {
+    let path = `/api/study`;
+    navigate(path);
+  };
+
   return (
     <div className="row d-flex flex-column align-content-center mt-5">
-      <div className="m-5">
+      <div className="my-5">
         <img src={lightbulb} alt="lighbulb graphic"></img>
       </div>
 
-      <StyledButton className="btn" onClick={routeChangeStudy}>
+      <button className="btn custom-button m-2" onClick={routeChangeStudy}>
         start studying
-      </StyledButton>
-      <StyledButton className="btn" onClick={routeChangeAllQuestions}>
+      </button>
+      <button className="btn custom-button m-2"  onClick={routeChangeAllQuestions}>
         view all questions
-      </StyledButton>
+      </button>
+      <button className="btn custom-button m-2" onClick={routeChangeNewQuestion}>
+        add new question
+      </button>
     </div>
   );
 }

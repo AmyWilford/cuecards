@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  background-color: #ffffef;
+  background-color: #fff1e1;
   width: 75%;
   border-radius: 5px;
   min-height: 400px;
@@ -56,7 +56,7 @@ export default function AddQuestion() {
         <p>Add your new question and correct answer.</p>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <label htmlFor="question">Question:</label>
+            <label htmlFor="question">Enter Your Question:</label>
             <input
               className="form-control"
               id="questionInput"
@@ -67,7 +67,7 @@ export default function AddQuestion() {
             ></input>
           </div>
           <div className="form-group">
-            <label htmlFor="question">Answer:</label>
+            <label htmlFor="question">Enter Your Answer:</label>
 
             <textarea
               className="form-control"
@@ -79,10 +79,10 @@ export default function AddQuestion() {
             />
           </div>
           <div className="d-flex justify-content-end">
-            <button className="btn custom-button m-1 btn-sm" type="submit">
+            <button className="btn custom-button m-1" type="submit">
               submit question
             </button>
-            <button className="btn custom-button m-1 btn-sm" type="submit" onClick={routeChangeAllQuestions}>
+            <button className="btn custom-button m-1" type="submit" onClick={routeChangeAllQuestions}>
               see all questions
             </button>
           </div>

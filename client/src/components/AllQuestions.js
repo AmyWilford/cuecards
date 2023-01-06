@@ -51,29 +51,38 @@ export default function DBQuestion() {
   }, []);
 
   return (
-    <div>
-      <h3 className="display-5 text-center">Your Study Questions</h3>
+    <div className="container mt-5">
+      <h3 className="display-5 text-center">Question Index</h3>
+      <div className="d-flex justify-content-end">
+      <button
+          className="btn custom-button m-2 "
+          onClick={routeChangeHome}
+        >
+          Go Home
+        </button>
+      </div>
+      
       <div className="table-responsive-sm">
         <table className="table">
           <thead>
             <tr>
-              <th scope="col" className="w-25">
-                Remove
+              <th scope="col" className="custom-col-width-delete text-uppercase">
               </th>
-              <th scope="col" className="w-50">
-                Question
+              <th scope="col" className="custom-col-width-question text-uppercase">
+              Question
               </th>
-              <th scope="col" className="w-25">
-                Edit
-              </th>
+              <th
+                scope="col"
+                className="custom-col-width-edit text-uppercase"
+              >Edit</th>
             </tr>
           </thead>
           <tbody>
             {allQuestions.map((question, index) => (
               <tr id="questionId" key={index}>
-                <td>
+              <td>
                   <button
-                    className="btn p-1 btn-sm"
+                    className="btn btn-link p-1 text-danger" 
                     onClick={() => deleteButton(question._id)}
                   >
                     <small>x</small>
@@ -89,26 +98,27 @@ export default function DBQuestion() {
                 </td>
                 <td>{question.question}</td>
                 <td>
-                  <Link to={`/api/study/${question._id}`} >
-                    <button className="btn btn-sm editButton" value={question._id}id="something">
-                      <small>Edit</small>
+                  <Link to={`/api/study/${question._id}`}>
+                    <button
+                      className="btn editButton"
+                      value={question._id}
+                      id="something"
+                    >edit
                     </button>
                   </Link>
-                </td>          
+                </td>
+              
               </tr>
             ))}
-
           </tbody>
         </table>
       </div>
       <div className="d-flex justify-content-end">
-        <button className="btn custom-button m-2 btn-sm" onClick={routeChangeNewQuestion}>
+        <button
+          className="btn custom-button m-2sm"
+          onClick={routeChangeNewQuestion}
+        >
           Add Question
-        </button>
-      </div>
-      <div className="d-flex justify-content-end">
-        <button className="btn custom-button m-2 btn-sm " onClick={routeChangeHome}>
-          Go Home
         </button>
       </div>
     </div>
