@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getQuestions } from "../utils/API";
 import styled from "styled-components";
-import Update from './Update';
+import Update from "./Update";
 
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ export default function DBQuestion() {
     try {
       const response = await getQuestions();
       if (!response.ok) {
-        throw new Error("could not fetch the gords");
+        throw new Error("could not fetch your questions");
       }
       let data = await response.json();
       setAllQuestions(data);
@@ -70,9 +70,8 @@ export default function DBQuestion() {
             </tr>
           </thead>
           <tbody>
-            {allQuestions.map((question) => (
-              <tr key={question._id}>
-                {/* <div className="d-flex justify-content-around align-items-center m-2"> */}
+            {allQuestions.map((question, index) => (
+              <tr id="questionId" key={index}>
                 <td>
                   <button
                     className="btn p-1 btn-sm"
@@ -85,31 +84,43 @@ export default function DBQuestion() {
                   <input
                     colSpan="0"
                     type="hidden"
-                    name="questionID"
+                    name="questionId"
                     value={question._id}
                   />
                 </td>
                 <td>{question.question}</td>
+
                 <td>
                   {/* <Link to="/update">
-                    <button className="btn btn-sm">
+                    <button className="btn btn-sm" id="something" data-id = {question._id}>
                       <small>Edit</small>
                     </button>
                   </Link> */}
-                  <Update questionId = {question._id} question = {question.question} answer = {question.answer}/>
-                  <button
+                  <Link to={`/api/study/${question._id}`} >
+                    <button className="btn btn-sm editButton" value={question._id}id="something">
+                      <small>Edit</small>
+                    </button>
+                  </Link>
+                
+                  {/* <button
                     type="button"
                     className="btn btn-sm"
                     data-toggle="modal"
                     data-target="#exampleModal"
                   >
                     edit
-                  </button>
-                </td>
-
-                {/* </div> */}
+                  </button> */}
+                  <Update
+                    questionId={question._id}
+                    question={question.question}
+                    answer={question.answer}
+                    index = {index}
+                  />
+                </td>          
               </tr>
+
             ))}
+
           </tbody>
         </table>
       </div>

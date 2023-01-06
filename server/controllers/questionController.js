@@ -47,7 +47,7 @@ module.exports = {
   // Update a question
   updateQuestion(req, res) {
     Question.findOneAndUpdate(
-      { _id: req.body.questionId },
+      { _id: req.params.questionId },
       { $set: req.body },
       { runValidators: true, new: true }
     )

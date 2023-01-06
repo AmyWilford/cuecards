@@ -10,6 +10,7 @@ export const getQuestions = () => {
 
 // Get Single Question
 export const getSingleQuestion = (questionId) => {
+  console.log()
   return fetch(`/api/study/${questionId}`, {
     headers: {
       "Content-Type": "application/json",
