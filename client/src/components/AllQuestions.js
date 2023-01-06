@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getQuestions } from "../utils/API";
 import styled from "styled-components";
-import Update from "./Update";
 
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -89,50 +88,28 @@ export default function DBQuestion() {
                   />
                 </td>
                 <td>{question.question}</td>
-
                 <td>
-                  {/* <Link to="/update">
-                    <button className="btn btn-sm" id="something" data-id = {question._id}>
-                      <small>Edit</small>
-                    </button>
-                  </Link> */}
                   <Link to={`/api/study/${question._id}`} >
                     <button className="btn btn-sm editButton" value={question._id}id="something">
                       <small>Edit</small>
                     </button>
                   </Link>
-                
-                  {/* <button
-                    type="button"
-                    className="btn btn-sm"
-                    data-toggle="modal"
-                    data-target="#exampleModal"
-                  >
-                    edit
-                  </button> */}
-                  <Update
-                    questionId={question._id}
-                    question={question.question}
-                    answer={question.answer}
-                    index = {index}
-                  />
                 </td>          
               </tr>
-
             ))}
 
           </tbody>
         </table>
       </div>
       <div className="d-flex justify-content-end">
-        <StyledButton className="btn" onClick={routeChangeNewQuestion}>
+        <button className="btn custom-button m-2 btn-sm" onClick={routeChangeNewQuestion}>
           Add Question
-        </StyledButton>
+        </button>
       </div>
       <div className="d-flex justify-content-end">
-        <StyledButton className="btn" onClick={routeChangeHome}>
+        <button className="btn custom-button m-2 btn-sm " onClick={routeChangeHome}>
           Go Home
-        </StyledButton>
+        </button>
       </div>
     </div>
   );

@@ -1,22 +1,44 @@
-import React, { useState } from "react";
-import {useNavigate } from "react-router-dom";
+import React, { useEffect,useState } from "react";
+import { useParams, useNavigate } from "react-router";
+import { getSingleQuestion } from "../utils/API";
 
-export default function Update(props) {
-    // console.log(props)
-  const [formState, setFormState] = useState({
-    questionId: `${props.questionId}`,
-    question: `${props.question}`,
-    answer: `${props.answer}`,
+export default function NewUpdate() {
+const [form, setForm] = useState({
+    question: "",
+    answer: "",
   });
 
- 
+  const params = useParams();
   const navigate = useNavigate();
+  const id = params.id.toString();
+const getQuestionToEdit = async () => {
+try {
+    const response = await getSingleQuestion(id);
+    if(!response.ok) {
+        throw new Error('could not get question ')
+    }
+    let data = await response.json();
+    setForm(data);
+
+} catch(err) {
+    console.error(err);
+}
+}
+
+const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  };
+
 
   const handleFormSubmit = async (event) => {
-    // event.preventDefault();
-    const response = { ...formState };
+    event.preventDefault();
+    const response = { ...form };
     console.log(response);
-    await fetch("/api/study/update", {
+    await fetch(`/api/study/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -29,51 +51,19 @@ export default function Update(props) {
     navigate("/allquestions");
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-    console.log(formState.question);
-    console.log(formState.answer);
-  };
 
-  return (
-    <div>
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <form onSubmit={handleFormSubmit} autoComplete="off">
-                <div className="form-row">
-                  <div className="form-group col-md-8">
-                    <input
-                      type="hidden"
-                      className="form-control"
-                      name="questionId"
-                      id="inputFirstName"
-                      value={formState.questionId}
-                    />
-                  </div>
-                </div>
+  const routeChangeHome = () => {
+    let path = `/allquestions`;
+    navigate(path);
+  };
+useEffect(() => {
+    getQuestionToEdit();
+  }, []);
+
+    return(
+        <div>
+            <h1>edits</h1>
+            <form onSubmit={handleFormSubmit} autoComplete="off">
                 <div className="form-row">
                   <div className="form-group col-md-8">
                     <label htmlFor="questionInput">Question</label>
@@ -82,7 +72,8 @@ export default function Update(props) {
                       id="questionInput"
                       className="form-control"
                       name="question"
-                      value={formState.question}
+                      value={form.question}
+                      required
                       onChange={handleChange}
                     />
                   </div>
@@ -95,25 +86,20 @@ export default function Update(props) {
                       className="form-control"
                       name="answer"
                       id="answerInput"
-                      value={formState.answer}
+                      value={form.answer}
+                      required
                       onChange={handleChange}
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn custom-button m-2">
                   Save changes
                 </button>
+                <button className="btn custom-button m-2" onClick={routeChangeHome}>
+          all questions
+        </button>
+
               </form>
-            </div>
-            <div className="modal-footer">
-              {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
-              {/* <button type="submit" className="btn btn-primary">
-                Save changes
-              </button> */}
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    )
 }

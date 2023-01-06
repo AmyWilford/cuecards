@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { createQuestion } from "../utils/API";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
-export default function NewQuestion() {
+const StyledContainer = styled.div`
+  background-color: #ffffef;
+  width: 75%;
+  border-radius: 5px;
+  min-height: 400px;
+`;
+
+export default function AddQuestion() {
   const [newquestion, setNewQuestion] = useState({
     question: "",
     answer: "",
   });
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
+  const routeChangeAllQuestions = () => {
+    let path = `/allquestions`;
+    navigate(path);
+  };
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "question") {
@@ -20,9 +31,8 @@ export default function NewQuestion() {
   };
 
   const handleFormSubmit = async (event) => {
-    console.log("i am working");
     event.preventDefault();
-    console.log(newquestion);
+  
     const response = { ...newquestion };
     await fetch("/api/study", {
       method: "POST",
@@ -42,25 +52,42 @@ export default function NewQuestion() {
   };
   return (
     <div>
-      <h1>add question</h1>
-      <form>
-        <input
-          id="questionInput"
-          type="text"
-          name="question"
-          onChange={handleChange}
-        ></input>
-        <br></br>
-        <input
-          id="answerInput"
-          type="text"
-          name="answer"
-          onChange={handleChange}
-        ></input>
-        <button type="submit" onClick={handleFormSubmit}>
-          add question
-        </button>
-      </form>
+      <StyledContainer className="container mt-5">
+        <p>Add your new question and correct answer.</p>
+        <form onSubmit={handleFormSubmit}>
+          <div className="form-group">
+            <label htmlFor="question">Question:</label>
+            <input
+              className="form-control"
+              id="questionInput"
+              type="text"
+              name="question"
+              required
+              onChange={handleChange}
+            ></input>
+          </div>
+          <div className="form-group">
+            <label htmlFor="question">Answer:</label>
+
+            <textarea
+              className="form-control"
+              id="answerInput"
+              type="text"
+              name="answer"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          <div className="d-flex justify-content-end">
+            <button className="btn custom-button m-1 btn-sm" type="submit">
+              submit question
+            </button>
+            <button className="btn custom-button m-1 btn-sm" type="submit" onClick={routeChangeAllQuestions}>
+              see all questions
+            </button>
+          </div>
+        </form>
+      </StyledContainer>
     </div>
   );
 }
