@@ -11,7 +11,7 @@ export default function Header({ currentPage, handlePageChange }) {
   // Function to show different nav elements based on login status
 
   return (
-    <nav className="header">
+    <nav className="header mt-3 fixed-top">
       <div className="pl-2 font-weight-bold nav-options d-flex justify-content-between">
         <div>
           <a
