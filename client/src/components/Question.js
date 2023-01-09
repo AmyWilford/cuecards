@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import styled from "styled-components";
+import cuecard from '../assets/cuecard.png';
+
 
 import { getRandomQuestion } from "../utils/API";
 
 const StyledCard = styled.div`
-  background-color: #fff1e1;
+  ${'' /* background-img: cuecard; */}
   border-radius: 5px;
   min-height: 400px;
 `;
@@ -67,7 +69,7 @@ export default function Question() {
       </div>
 
       <div>
-        <StyledCard>
+        <StyledCard className="cuecard img-fluid">
           <div className="row p-2">
             <div className="col-sm-6 custom-alignment">
               <div className={displayClass}>
@@ -88,6 +90,14 @@ export default function Question() {
                 >
                   New Question
                 </button>
+                <Link to={`/api/study/${question._id}`}>
+                    <button
+                      className="btn editButton"
+                      value={question._id}
+                      id="something"
+                    >edit
+                    </button>
+                  </Link>
               </div>
             </div>
           </div>

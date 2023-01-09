@@ -8,6 +8,13 @@
     border: none;
 }
 
+.cuecard {
+    background-image: url('../assets/cuecard.png');
+    background-size:cover;
+    width: 100%;
+    height: auto;
+}
+
 .custom-col-width-edit {
     width: 15%
 }
