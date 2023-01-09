@@ -7,11 +7,14 @@ import AddQuestion from './components/AddQuestion';
 import DBQuestion from "./components/AllQuestions";
 // import Container from "./components/Container";
 import Update from "./components/Update";
+import Header from './components/Header';
+import Footer from './components/Footer';
 // import NewUpdate from "./components/newUpdate";
 
 function App() {
   return (
     <Router>
+    <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/study" element={<Question />} />
@@ -20,6 +23,7 @@ function App() {
         {/* <Route path="/container" element={<Container />} /> */}
         <Route path="/api/study/:id" element={<Update />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

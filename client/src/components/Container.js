@@ -1,32 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { getQuestions } from "../utils/API";
-import NewQuestion from "./NewQuestion";
+// import React, { useState } from "react";
+// // import Header from "./Header";
+// // import Footer from "./Footer";
+// import Home from "./pages/Home";
+// import Study from './Question';
+// import AllQuestions from "./AllQuestions";
+// import AddQuestion from "./AddQuestion";
+// import Update from "./Update";
 
-export default function Container() {
-  const [allQuestions, setAllQuestions] = useState([]);
-  const [randomID, setrandomID] = useState([]);
+// export default function Container() {
 
-  const getTheQuestions = async () => {
-    try {
-      const response = await getQuestions();
-      if (!response.ok) {
-        throw new Error("could not fetch the gords");
-      }
-      let data = await response.json();
-      setAllQuestions(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+//   const [currentPage, setCurrentPage] = useState("Home");
 
-  useEffect(() => {
-    getTheQuestions();
-  }, []);
+//   const renderPage = () => {
+//     if (currentPage === "Home") {
+//       return (
+//         <Home currentPage={currentPage} handlePageChange={handlePageChange} />
+//       );
+//     }
+//     if (currentPage === "Study") {
+//       return <Study />;
+//     }
+//     if (currentPage === "AllQuestions") {
+//       return <AllQuestions />;
+//     }
+//     if (currentPage === "AddQuestion") {
+//       return <AddQuestion />;
+//     }
+//     // return <Update />;
+//   };
 
-  return (
-    <div>
-      <h1>Hello</h1>
-      <NewQuestion allQuestions={allQuestions} />
-    </div>
-  );
-}
+//   const handlePageChange = (page) => setCurrentPage(page);
+
+//   return (
+//     <div>
+//       <Header currentPage={currentPage} handlePageChange={handlePageChange} />
+//       {renderPage()}
+//       <Footer />
+//     </div>
+//   );
+// }

@@ -3,10 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import lightbulb from "../assets/lightbulb.png";
 
-// const StyledDiv = styled.div`
-//   margin-top: 50vh;
 
-// `
 const StyledButton = styled.button`
   background-color: #ff7134;
   color: #fff1e1;
