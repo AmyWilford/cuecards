@@ -53,24 +53,14 @@ export default function DBQuestion() {
 
   return (
     <div className="container custom-margin">
-      <h3 className="display-5 text-center">Question Index</h3>
-      <div className="d-flex justify-content-end">
-      <button
-          className="btn custom-button m-2 "
-          onClick={routeChangeHome}
-        >
-          Go Home
-        </button>
-      </div>
-      
-      <div className="table-responsive-sm">
-        <table className="table">
+      <div className="">
+        <table className="table borderless table-responsive-sm">
           <thead>
-            <tr>
+            <tr className="borderless">
               <th scope="col" className="custom-col-width-delete text-uppercase">
               </th>
               <th scope="col" className="custom-col-width-question text-uppercase">
-              Question
+              Study Cards
               </th>
               <th
                 scope="col"
@@ -83,10 +73,10 @@ export default function DBQuestion() {
               <tr id="questionId" key={index}>
               <td>
                   <button
-                    className="btn btn-link p-1 text-danger" 
+                    className="btn btn-link p-0 m-0 text-danger" 
                     onClick={() => deleteButton(question._id)}
                   >
-                    <small>x</small>
+                    ✖
                   </button>
                 </td>
                 <td className="d-none">
@@ -97,14 +87,15 @@ export default function DBQuestion() {
                     value={question._id}
                   />
                 </td>
-                <td>{question.question}</td>
+                <td><p className="font-weight-bold">{question.question}</p>
+                <p className="font-italic">{question.answer}</p></td>
                 <td>
                   <Link to={`/api/study/${question._id}`}>
                     <button
                       className="btn editButton"
                       value={question._id}
                       id="something"
-                    >edit
+                    >✎
                     </button>
                   </Link>
                 </td>
@@ -114,14 +105,14 @@ export default function DBQuestion() {
           </tbody>
         </table>
       </div>
-      <div className="d-flex justify-content-end">
+      {/* <div className="d-flex justify-content-end">
         <button
           className="btn custom-button m-2sm"
           onClick={routeChangeNewQuestion}
         >
           Add Question
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

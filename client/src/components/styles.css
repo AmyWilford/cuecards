@@ -2,6 +2,13 @@
 
 .nav-link {
     color:#ff7134 ;
+    font-size: 1rem;
+    font-weight: bold;
+    align-self: center;
+}
+
+.borderless th {
+    border: none;
 }
 
 .active {
@@ -14,6 +21,11 @@
 .nav-link:hover {
     color: #EFB7AD;
 }
+
+.nav-link:active {
+    color: yellow;
+  }
+  
 .link-display{
     display: none;
 }
@@ -36,12 +48,13 @@
 .container{
     margin-top: 5rem;
 }
-.cuecard {
-    background-image: url('../assets/cuecard.png');
-    background-size:cover;
-    width: 100%;
-    height: auto;
+.custom-icon{
+    font-size: 1.5rem;
 }
+.form-control {
+    border: none;
+}
+
 
 .custom-col-width-edit {
     width: 15%

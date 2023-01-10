@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  background-color: #fff1e1;
-  width: 75%;
+  background-color: #FFE477;
   border-radius: 5px;
   min-height: 400px;
+  box-shadow: 5px 7px 5px #888888;
+  padding: 1rem; 
 `;
 
 export default function AddQuestion() {
@@ -52,12 +53,20 @@ export default function AddQuestion() {
     navigate("/");
   };
   return (
-    <div>
-      <StyledContainer className="container mt-5">
-        <p>Add your new question and correct answer.</p>
+    <div className="container">
+      <StyledContainer>
+        <div className="d-flex justify-content-end">
+          <button
+            className="btn btn-link m-1"
+            type="submit"
+            onClick={routeChangeAllQuestions}
+          >
+            <small>back to questions</small>
+          </button>
+        </div>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <label htmlFor="question">Enter Your Question:</label>
+            <label htmlFor="question">New Question:</label>
             <input
               className="form-control"
               id="questionInput"
@@ -68,27 +77,21 @@ export default function AddQuestion() {
             ></input>
           </div>
           <div className="form-group">
-            <label htmlFor="question">Enter Your Answer:</label>
+            <label htmlFor="question">New Answer:</label>
 
             <textarea
               className="form-control"
               id="answerInput"
               type="text"
               name="answer"
+              rows="4"
               required
               onChange={handleChange}
             />
           </div>
-          <div className="d-flex justify-content-end">
+          <div className="d-flex justify-content-end align-bottom">
             <button className="btn custom-button m-1" type="submit">
               submit question
-            </button>
-            <button
-              className="btn custom-button m-1"
-              type="submit"
-              onClick={routeChangeAllQuestions}
-            >
-              see all questions
             </button>
           </div>
         </form>

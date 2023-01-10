@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Question from "./components/Question";
 import AddQuestion from "./components/AddQuestion";
 import DBQuestion from "./components/AllQuestions";
-// import Container from "./components/Container";
 import Update from "./components/Update";
 import Header from "./components/Header";
 import Footer from "./components/Footer";

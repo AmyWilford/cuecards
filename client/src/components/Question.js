@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { getRandomQuestion } from "../utils/API";
 
 const StyledCard = styled.div`
+  background-color: #FFE477;
   border-radius: 5px;
   min-height: 400px;
   box-shadow: 5px 7px 5px #888888;
@@ -66,23 +67,20 @@ export default function Question() {
       </div> */}
 
       <div>
-        <StyledCard className="cuecard img-fluid">
-          <div className="d-flex justify-content-end">
+        <StyledCard className="img-fluid">
+          <div className="d-flex justify-content-end p-2">
             <Link to={`/api/study/${question._id}`}>
-              <span
-                className="p-2"
-                value={question._id}
-                id="something"
-              >
+              <span className="p-2" value={question._id} id="something">
                 edit
               </span>
             </Link>
           </div>
 
-          <div className="pt-2">
+          <div className="p-3">
             <p className="font-weight-bold">
               QUESTION: <span id="question">{question.question}</span>
             </p>
+            <hr></hr>
             <div className="custom-card-spacing">
               <p className={answerDisplay}>{answer}</p>
             </div>
