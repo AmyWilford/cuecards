@@ -5,13 +5,12 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const StyledButton = styled.button`
-  background-img: #ff7134;
-  color: #fff1e1;
+const StyledCard = styled.div`
+  background-color: #ffe477;
+  padding: 0.5rem;
   border: none;
-  margin: 0 5rem 1rem 5rem;
+  border-radius: 5px;
 `;
-
 
 export default function DBQuestion() {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -53,7 +52,7 @@ export default function DBQuestion() {
 
   return (
     <div className="container custom-margin">
-      <div className="">
+      {/* <div className="">
         <table className="table borderless table-responsive-sm">
           <thead>
             <tr className="borderless">
@@ -68,43 +67,52 @@ export default function DBQuestion() {
               >Edit</th>
             </tr>
           </thead>
-          <tbody>
-            {allQuestions.map((question, index) => (
-              <tr id="questionId" key={index}>
-              <td>
-                  <button
-                    className="btn btn-link p-0 m-0 text-danger" 
-                    onClick={() => deleteButton(question._id)}
-                  >
-                    ✖
-                  </button>
-                </td>
-                <td className="d-none">
-                  <input
-                    colSpan="0"
-                    type="hidden"
-                    name="questionId"
-                    value={question._id}
-                  />
-                </td>
-                <td><p className="font-weight-bold">{question.question}</p>
-                <p className="font-italic">{question.answer}</p></td>
-                <td>
-                  <Link to={`/api/study/${question._id}`}>
-                    <button
-                      className="btn editButton"
-                      value={question._id}
-                      id="something"
-                    >✎
-                    </button>
-                  </Link>
-                </td>
-              
-              </tr>
-            ))}
-          </tbody>
+          <tbody> */}
+      {allQuestions.map((question, index) => (
+        <StyledCard className="row m-2" id="questionId" key={index}>
+          <div className="col-sm-2 d-flex flex-column ">
+            <button
+              className=" btn btn-link p-0 m-0 custom-color text-left"
+              onClick={() => deleteButton(question._id)}
+            >
+              ✖
+            </button>
+            <Link to={`/api/study/${question._id}`}>
+              <button
+                className="btn btn-link custom-color text-left p-0"
+                value={question._id}
+                id="something"
+              >
+                ✎
+              </button>
+            </Link>
+          </div>
+          {/* <div className="col-sm-2">
+                 
+                </div> */}
+          <div className="d-none">
+            <input
+              colSpan="0"
+              type="hidden"
+              name="questionId"
+              value={question._id}
+            />
+          </div>
+          <div className="col-sm-9">
+            <p>
+              <span className="font-weight-bold">question: </span>
+              {question.question}
+            </p>
+            <p className="font-italic">
+              <span className="font-weight-bold">answer: </span>
+              {question.answer}
+            </p>
+          </div>
+        </StyledCard>
+      ))}
+      {/* </tbody>
         </table>
-      </div>
+      </div> */}
       {/* <div className="d-flex justify-content-end">
         <button
           className="btn custom-button m-2sm"

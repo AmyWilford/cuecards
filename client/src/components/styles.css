@@ -19,23 +19,20 @@
     color: #F27059;
 } */
 .nav-link:hover {
-    color: #EFB7AD;
+    color: #01224D;
 }
 
-.nav-link:active {
-    color: yellow;
-  }
-  
 .link-display{
     display: none;
 }
-.custom-shadow {
+/* .custom-shadow {
     box-shadow: 5px 7px 5px #888888;
+} */
+
+.custom-input-size{
+    font-size: 12px;
 }
 
-.custom-card-spacing{
-    padding-top: 2.4rem;
-}
 .custom-margin {
     margin-bottom:80px;
 }
@@ -54,7 +51,12 @@
 .form-control {
     border: none;
 }
-
+.custom-color {
+    color: #ff7134;
+}
+.btn-link:hover {
+    text-decoration: none;
+}
 
 .custom-col-width-edit {
     width: 15%
@@ -66,11 +68,6 @@
     width: 5%;
 }
 
-@media only screen and (max-width: 767px) {
-    .custom-card-spacing{
-        padding-top: 1.8rem;
-    }
-}
 @media only screen and (max-width: 576px) {
     .custom-alignment {
         text-align:right;

@@ -61,14 +61,14 @@ export default function AddQuestion() {
             type="submit"
             onClick={routeChangeAllQuestions}
           >
-            <small>back to questions</small>
+            <small> ← back to questions</small>
           </button>
         </div>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <label htmlFor="question">New Question:</label>
             <input
-              className="form-control"
+              className="form-control custom-input-size"
               id="questionInput"
               type="text"
               name="question"
@@ -80,7 +80,7 @@ export default function AddQuestion() {
             <label htmlFor="question">New Answer:</label>
 
             <textarea
-              className="form-control"
+              className="form-control custom-input-size"
               id="answerInput"
               type="text"
               name="answer"

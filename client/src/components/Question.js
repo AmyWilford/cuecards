@@ -70,15 +70,16 @@ export default function Question() {
         <StyledCard className="img-fluid">
           <div className="d-flex justify-content-end p-2">
             <Link to={`/api/study/${question._id}`}>
-              <span className="p-2" value={question._id} id="something">
-                edit
-              </span>
+              <button className="p-2 btn btn-link" value={question._id} id="something">
+                edit ✎
+              </button>
             </Link>
           </div>
 
           <div className="p-3">
+            <p className="font-weight-bold"> QUESTION: </p>
             <p className="font-weight-bold">
-              QUESTION: <span id="question">{question.question}</span>
+              <span id="question">{question.question}</span>
             </p>
             <hr></hr>
             <div className="custom-card-spacing">

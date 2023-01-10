@@ -77,7 +77,7 @@ export default function Update() {
               <input
                 type="text"
                 id="updatequestionInput"
-                className="form-control "
+                className="form-control input-sm custom-input-size"
                 name="question"
                 value={form.question}
                 required
@@ -90,7 +90,7 @@ export default function Update() {
               <label htmlFor="answerInput">Answer</label>
               <textarea
                 type="text"
-                className="form-control"
+                className="form-control custom-input-size"
                 name="answer"
                 id="answerInput"
                 value={form.answer}
