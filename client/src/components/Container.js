@@ -1,14 +1,13 @@
 // import React, { useState } from "react";
-// // import Header from "./Header";
-// // import Footer from "./Footer";
-// import Home from "./pages/Home";
-// import Study from './Question';
-// import AllQuestions from "./AllQuestions";
+// import Header from "./Header";
+// import Footer from "./Footer";
+// import Home from "./Home";
+// import Question from './Question';
+// import DBQuestion from "./AllQuestions";
 // import AddQuestion from "./AddQuestion";
-// import Update from "./Update";
+// // import Update from "./Update";
 
 // export default function Container() {
-
 //   const [currentPage, setCurrentPage] = useState("Home");
 
 //   const renderPage = () => {
@@ -18,10 +17,10 @@
 //       );
 //     }
 //     if (currentPage === "Study") {
-//       return <Study />;
+//       return <Question />;
 //     }
-//     if (currentPage === "AllQuestions") {
-//       return <AllQuestions />;
+//     if (currentPage === "allquestions") {
+//       return <DBQuestion />;
 //     }
 //     if (currentPage === "AddQuestion") {
 //       return <AddQuestion />;
@@ -35,7 +34,7 @@
 //     <div>
 //       <Header currentPage={currentPage} handlePageChange={handlePageChange} />
 //       {renderPage()}
-//       <Footer />
+//       <Footer currentPage={currentPage} handlePageChange={handlePageChange}/>
 //     </div>
 //   );
 // }

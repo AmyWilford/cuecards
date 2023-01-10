@@ -48,12 +48,12 @@ const handleChange = (event) => {
       console.log(err);
       return;
     });
-    navigate("/allquestions");
+    navigate("/");
   };
 
 
   const routeChangeHome = () => {
-    let path = `/allquestions`;
+    let path = `/`;
     navigate(path);
   };
 useEffect(() => {

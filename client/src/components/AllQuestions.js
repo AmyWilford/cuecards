@@ -52,7 +52,7 @@ export default function DBQuestion() {
   }, []);
 
   return (
-    <div className="container mt-5 custom-margin">
+    <div className="container custom-margin">
       <h3 className="display-5 text-center">Question Index</h3>
       <div className="d-flex justify-content-end">
       <button

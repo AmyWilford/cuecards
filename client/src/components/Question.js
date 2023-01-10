@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles.css";
 import styled from "styled-components";
-import cuecard from '../assets/cuecard.png';
-
 
 import { getRandomQuestion } from "../utils/API";
 
 const StyledCard = styled.div`
-  ${'' /* background-img: cuecard; */}
   border-radius: 5px;
   min-height: 400px;
+  box-shadow: 5px 7px 5px #888888;
 `;
-
 
 export default function Question() {
   // Set State for all questions (Fetched from database)
@@ -22,13 +19,13 @@ export default function Question() {
   const [answer, setAnswer] = useState("");
   const [displayClass, setdisplayClass] = useState("d-none");
   const [answerDisplay, setAnswerDisplay] = useState("d-none");
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
   // Establish navigation route for study break button
-  const routeChange = () => {
-    let path = `/`;
-    navigate(path);
-  };
+  // const routeChange = () => {
+  //   let path = `/`;
+  //   navigate(path);
+  // };
 
   // Function to get question from the database (using imported getQuestions from utils)
   const getQuestion = async () => {
@@ -61,55 +58,62 @@ export default function Question() {
   }, []);
 
   return (
-    <div className="container mt-5">
-      <div className="mb-3 d-flex justify-content-end">
+    <div className="container custom-container-margin">
+      {/* <div className="mb-3 d-flex justify-content-end">
         <button className="btn" onClick={routeChange}>
           study break
         </button>
-      </div>
+      </div> */}
 
       <div>
         <StyledCard className="cuecard img-fluid">
-          <div className="row p-2">
-            <div className="col-sm-6 custom-alignment">
-              <div className={displayClass}>
-                <button className="btn custom-button m-2 custom-shadow"
-                  id="answerbtn"
-                  onClick={getAnswer}
-                >
-                  Answer
-                </button>
-              </div>
-            </div>
-
-            <div className="col-sm-6 text-right">
-              <div className={displayClass}>
-              <button className="btn custom-button m-2 custom-shadow"
-                  id="newQbtn"
-                  onClick={getQuestion}
-                >
-                  New Question
-                </button>
-                <Link to={`/api/study/${question._id}`}>
-                    <button
-                      className="btn editButton"
-                      value={question._id}
-                      id="something"
-                    >edit
-                    </button>
-                  </Link>
-              </div>
-            </div>
+          <div className="d-flex justify-content-end">
+            <Link to={`/api/study/${question._id}`}>
+              <span
+                className="p-2"
+                value={question._id}
+                id="something"
+              >
+                edit
+              </span>
+            </Link>
           </div>
 
-          <div className=" p-5">
+          <div className="pt-2">
             <p className="font-weight-bold">
               QUESTION: <span id="question">{question.question}</span>
             </p>
-            <hr></hr>
-            <p className={answerDisplay}>{answer}</p>
+            <div className="custom-card-spacing">
+              <p className={answerDisplay}>{answer}</p>
+            </div>
           </div>
         </StyledCard>
+      </div>
+
+      <div className="row pt-3">
+        <div className="col-sm-6 custom-alignment">
+          <div className={displayClass}>
+            <button
+              className="btn custom-button btn-sm mt-2"
+              id="answerbtn"
+              onClick={getAnswer}
+            >
+              see answer
+            </button>
+          </div>
+        </div>
+
+        <div className="col-sm-6 text-right">
+          <div className={displayClass}>
+            <button
+              className="btn custom-button btn-sm mt-2"
+              id="newQbtn"
+              onClick={getQuestion}
+            >
+              new question 〉
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

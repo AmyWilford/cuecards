@@ -17,7 +17,7 @@ export default function AddQuestion() {
   const navigate = useNavigate();
 
   const routeChangeAllQuestions = () => {
-    let path = `/allquestions`;
+    let path = `/`;
     navigate(path);
   };
   const handleChange = (event) => {
@@ -32,7 +32,7 @@ export default function AddQuestion() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-  
+
     const response = { ...newquestion };
     await fetch("/api/study", {
       method: "POST",
@@ -45,10 +45,11 @@ export default function AddQuestion() {
       return;
     });
     setNewQuestion({ question: " ", answer: "" });
-    let questionInput = document.getElementById("questionInput");
-    let answerInput = document.getElementById("answerInput");
-    questionInput.value = "";
-    answerInput.value = "";
+    // let questionInput = document.getElementById("questionInput");
+    // let answerInput = document.getElementById("answerInput");
+    // questionInput.value = "";
+    // answerInput.value = "";
+    navigate("/");
   };
   return (
     <div>
@@ -82,7 +83,11 @@ export default function AddQuestion() {
             <button className="btn custom-button m-1" type="submit">
               submit question
             </button>
-            <button className="btn custom-button m-1" type="submit" onClick={routeChangeAllQuestions}>
+            <button
+              className="btn custom-button m-1"
+              type="submit"
+              onClick={routeChangeAllQuestions}
+            >
               see all questions
             </button>
           </div>
