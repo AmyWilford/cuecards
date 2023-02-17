@@ -6,10 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const StyledCard = styled.div`
-  background-color: #ffe477;
+  background-color: #d5edfa;
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
+  width: 300px;
+  min-height: 100px;
+  max-height: fit-content;
 `;
 
 export default function DBQuestion() {
@@ -51,32 +54,36 @@ export default function DBQuestion() {
   }, []);
 
   return (
-    <div className="container custom-margin">
-      {/* <div className="">
-        <table className="table borderless table-responsive-sm">
-          <thead>
-            <tr className="borderless">
-              <th scope="col" className="custom-col-width-delete text-uppercase">
-              </th>
-              <th scope="col" className="custom-col-width-question text-uppercase">
-              Study Cards
-              </th>
-              <th
-                scope="col"
-                className="custom-col-width-edit text-uppercase"
-              >Edit</th>
-            </tr>
-          </thead>
-          <tbody> */}
+    <div className="container custom-margin question-container">
       {allQuestions.map((question, index) => (
-        <StyledCard className="row m-2" id="questionId" key={index}>
-          <div className="col-sm-2 d-flex flex-column ">
+        <StyledCard className=" m-2" id="questionId" key={index}>
+          <div className="d-flex justify-content-end">
             <button
-              className=" btn btn-link p-0 m-0 custom-color text-left"
+              id="delete-button"
+              className="btn btn-link m-0 custom-color "
               onClick={() => deleteButton(question._id)}
             >
-              ✖
+              &#x2715;
             </button>
+          </div>
+          <div className="d-none">
+            <input
+              colSpan="0"
+              type="hidden"
+              name="questionId"
+              value={question._id}
+            />
+          </div>
+
+          <p>
+            <span className="font-weight-bold">question: </span>
+            {question.question}
+          </p>
+          <p className="font-italic">
+            <span className="font-weight-bold">answer: </span>
+            {question.answer}
+          </p>
+          <div className="d-flex justify-content-end">
             <Link to={`/api/study/${question._id}`}>
               <button
                 className="btn btn-link custom-color text-left p-0"
@@ -86,27 +93,6 @@ export default function DBQuestion() {
                 ✎
               </button>
             </Link>
-          </div>
-          {/* <div className="col-sm-2">
-                 
-                </div> */}
-          <div className="d-none">
-            <input
-              colSpan="0"
-              type="hidden"
-              name="questionId"
-              value={question._id}
-            />
-          </div>
-          <div className="col-sm-9">
-            <p>
-              <span className="font-weight-bold">question: </span>
-              {question.question}
-            </p>
-            <p className="font-italic">
-              <span className="font-weight-bold">answer: </span>
-              {question.answer}
-            </p>
           </div>
         </StyledCard>
       ))}

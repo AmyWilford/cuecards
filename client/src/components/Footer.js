@@ -8,7 +8,7 @@ export default function Footer() {
   const navigate = useNavigate();
 
   const routeChangeAllQuestions = () => {
-    let path = `/`;
+    let path = `/allcards`;
     navigate(path);
   };
   const routeChangeStudy = () => {
@@ -23,28 +23,28 @@ export default function Footer() {
   return (
     <nav className="navbar fixed-bottom footer justify-content-end custom-footer">
       <div className="d-flex m-2 ">
-      <button
-            className="btn btn-link nav-link m-1"
-            type="submit"
-            onClick={routeChangeStudy}
-          >
+        <button
+          className="btn btn-link nav-link m-1"
+          type="submit"
+          onClick={routeChangeStudy}
+        >
           study
-          </button>
-      <button
-            className="btn btn-link nav-link m-1"
-            type="submit"
-            onClick={routeChangeAllQuestions}
-          >
+        </button>
+        <button
+          className="btn btn-link nav-link m-1"
+          type="submit"
+          onClick={routeChangeAllQuestions}
+        >
           view all cards
-          </button>
-          <button
+        </button>
+        <button
           id="add-new"
-            className="btn btn-link nav-link m-1"
-            type="submit"
-            onClick={routeChangeAdd}
-          >
+          className="btn btn-link nav-link m-1"
+          type="submit"
+          onClick={routeChangeAdd}
+        >
           +
-          </button>
+        </button>
       </div>
     </nav>
   );
