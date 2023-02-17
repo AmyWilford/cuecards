@@ -111,11 +111,23 @@
 .custom-color {
     color: #373636 ;
 }
+.btn-link{
+    color: #373636;
+}
 .btn-link:hover {
     text-decoration: none;
     color: #ff7134;
 }
 
+#styledCard {
+position: relative;
+}
+#edit-div{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: .75rem;
+}
 .custom-col-width-edit {
     width: 15%
 }

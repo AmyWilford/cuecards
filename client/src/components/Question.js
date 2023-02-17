@@ -6,11 +6,16 @@ import styled from "styled-components";
 import { getRandomQuestion } from "../utils/API";
 
 const StyledCard = styled.div`
-  background-color: #FFE477;
+  background-color: #d5edfa;
   border-radius: 5px;
   min-height: 400px;
   box-shadow: 5px 7px 5px #888888;
+  position: relative;
 `;
+
+const StyledQuestion  = styled.p`
+font-size: 1.1rem;`
+
 
 export default function Question() {
   // Set State for all questions (Fetched from database)
@@ -67,24 +72,26 @@ export default function Question() {
       </div> */}
 
       <div>
-        <StyledCard className="img-fluid">
-          <div className="d-flex justify-content-end p-2">
-            <Link to={`/api/study/${question._id}`}>
-              <button className="p-2 btn btn-link" value={question._id} id="something">
-                edit ✎
-              </button>
-            </Link>
-          </div>
-
+        <StyledCard className="img-fluid" id="styledCard">
           <div className="p-3">
-            <p className="font-weight-bold"> QUESTION: </p>
-            <p className="font-weight-bold">
-              <span id="question">{question.question}</span>
-            </p>
+            <StyledQuestion className="font-weight-bold">
+              <span id="question"> {question.question}</span>
+            </StyledQuestion>
             <hr></hr>
             <div className="custom-card-spacing">
-              <p className={answerDisplay}>{answer}</p>
+              <p className= {answerDisplay}>{answer}</p>
             </div>
+          </div>
+          <div id="edit-div">
+            <Link to={`/api/study/${question._id}`}>
+              <button
+                className="p-2 btn btn-link"
+                value={question._id}
+                id="something"
+              >
+                edit question ✎
+              </button>
+            </Link>
           </div>
         </StyledCard>
       </div>
@@ -109,7 +116,7 @@ export default function Question() {
               id="newQbtn"
               onClick={getQuestion}
             >
-              new question 〉
+              new question →
             </button>
           </div>
         </div>
