@@ -18,6 +18,36 @@
 /* .nav-options .nav-link.active, .navbar-nav .show>.nav-link {
     color: #F27059;
 } */
+
+.home-study-button{
+    color: #ff7134;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(
+      to right,
+      #FFDE59,
+      #ff7134 50%,
+      #ff7134 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    padding: 5px 0;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .home-study-button:hover {
+   background-position: 0;
+   cursor:pointer
+  }
+  
+  .home-study-button:hover::before {
+    width:100%;
+  }
 .nav-link:hover {
     color: #01224D;
 }
