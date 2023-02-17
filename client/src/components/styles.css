@@ -1,10 +1,23 @@
 /* Navigation Styles - Header & Footer */
 
 .nav-link {
-    color:#ff7134 ;
+    color:white !important;
+    opacity: .5;
     font-size: 1rem;
     font-weight: bold;
     align-self: center;
+}
+#add-new {
+    border: 2px solid #ff7134;
+    border-radius: 100%;
+
+    padding: 10px 15px;
+
+}
+#add-new:hover{
+  border: 2px solid white;
+  border-radius: 100%;
+  box-shadow: 0 0 50px #FFDE59;
 }
 
 .borderless th {
@@ -18,7 +31,11 @@
 /* .nav-options .nav-link.active, .navbar-nav .show>.nav-link {
     color: #F27059;
 } */
-
+.lightbulb-container{
+    border-radius: 50%;
+    background-color: #D5EDFA;
+    padding: 1rem;
+}
 .home-study-button{
     color: #ff7134;
     font-weight: bold;
@@ -49,7 +66,7 @@
     width:100%;
   }
 .nav-link:hover {
-    color: #01224D;
+    opacity: 1;
 }
 
 .link-display{
@@ -96,6 +113,10 @@
 }
 .custom-col-width-delete {
     width: 5%;
+}
+.custom-footer {
+    background-color: #ff7134;
+    color: white
 }
 
 @media only screen and (max-width: 576px) {

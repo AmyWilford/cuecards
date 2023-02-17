@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <div className="row d-flex flex-column align-content-center mt-5">
-      <div className="my-5">
+      <div className="my-5 lightbulb-container">
         <img src={lightbulb} alt="lighbulb graphic"></img>
       </div>
 
