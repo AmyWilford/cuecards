@@ -77,7 +77,7 @@ export default function AddQuestion() {
         </div>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <label htmlFor="question">New Question:</label>
+            <label htmlFor="question" className="font-weight-bold">add a new question:</label>
             <StyledInput
               className="form-control custom-input-size"
               id="questionInput"
@@ -88,7 +88,7 @@ export default function AddQuestion() {
             ></StyledInput>
           </div>
           <div className="form-group">
-            <label htmlFor="question">New Answer:</label>
+            <label htmlFor="question" className="font-weight-bold">add the answer:</label>
 
             <StyledTextarea
               className="form-control custom-input-size"

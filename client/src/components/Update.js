@@ -4,11 +4,19 @@ import { getSingleQuestion } from "../utils/API";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  background-color: #FFE477;
+  background-color: #d5edfa;
   border-radius: 5px;
   min-height: 400px;
   box-shadow: 5px 7px 5px #888888;
   padding: 1rem;
+  position: relative;
+`;
+
+const ButtonDiv = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.75rem;
 `;
 
 export default function Update() {
@@ -55,7 +63,7 @@ export default function Update() {
       console.log(err);
       return;
     });
-    navigate("/");
+    navigate("/allcards");
   };
 
   const routeChangeStudy = () => {
@@ -70,10 +78,13 @@ export default function Update() {
     <div className="container">
       <StyledContainer>
         <form className="p-2" onSubmit={handleFormSubmit} autoComplete="off">
-          <p>Did you see a mistake? Update your study card to keep your studying on track.</p>
-          <div >
+          <p>
+            Did you see a mistake? Update your study card to keep your studying
+            on track.
+          </p>
+          <div>
             <div className="form-group">
-              <label htmlFor="updatequestionInput">Question</label>
+              <label htmlFor="updatequestionInput" className="font-weight-bold">question:</label>
               <input
                 type="text"
                 id="updatequestionInput"
@@ -87,7 +98,7 @@ export default function Update() {
           </div>
           <div>
             <div className="form-group">
-              <label htmlFor="answerInput">Answer</label>
+              <label htmlFor="answerInput" className="font-weight-bold">answer:</label>
               <textarea
                 type="text"
                 className="form-control custom-input-size"
@@ -100,15 +111,17 @@ export default function Update() {
               />
             </div>
           </div>
-          <div className="d-flex justify-content-end">
-          <button type="submit" className="btn custom-button m-2 text-white">
-            ✓
-          </button>
-          <button className="btn custom-button m-2" onClick={routeChangeStudy}>
-            keep studying
-          </button>
-          </div>
-          
+          <ButtonDiv className="d-flex justify-content-end">
+            <button type="submit" className="btn custom-button m-2 text-white">
+              ✓
+            </button>
+            <button
+              className="btn custom-button m-2"
+              onClick={routeChangeStudy}
+            >
+              keep studying
+            </button>
+          </ButtonDiv>
         </form>
       </StyledContainer>
     </div>
