@@ -10,7 +10,7 @@ const StyledCard = styled.div`
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  width: 300px;
+  max-width: 600px;
   min-height: 100px;
   max-height: fit-content;
 `;
@@ -75,10 +75,7 @@ export default function DBQuestion() {
             />
           </div>
 
-          <p>
-            <span className="font-weight-bold">question: </span>
-            {question.question}
-          </p>
+          <p className="font-weight-bold">{question.question}</p>
           <p className="font-italic">
             <span className="font-weight-bold">answer: </span>
             {question.answer}

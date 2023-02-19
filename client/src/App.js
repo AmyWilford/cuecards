@@ -6,14 +6,12 @@ import Question from "./components/Question";
 import AddQuestion from "./components/AddQuestion";
 import DBQuestion from "./components/AllQuestions";
 import Update from "./components/Update";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 // import NewUpdate from "./components/newUpdate";
 
 function App() {
   return (
     <Router>
-      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/allcards" element={<DBQuestion />} /> 
