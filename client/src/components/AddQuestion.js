@@ -3,11 +3,26 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  background-color: #FFE477;
+  background-color: #d5edfa;
   border-radius: 5px;
   min-height: 400px;
   box-shadow: 5px 7px 5px #888888;
-  padding: 1rem; 
+  padding: 1rem;
+  position: relative;
+`;
+
+const SubmitDiv = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.75rem;
+`;
+
+const StyledInput = styled.input`
+  background-color: #edf6fa;
+`;
+const StyledTextarea = styled.textarea`
+  background-color: #edf6fa;
 `;
 
 export default function AddQuestion() {
@@ -46,10 +61,6 @@ export default function AddQuestion() {
       return;
     });
     setNewQuestion({ question: " ", answer: "" });
-    // let questionInput = document.getElementById("questionInput");
-    // let answerInput = document.getElementById("answerInput");
-    // questionInput.value = "";
-    // answerInput.value = "";
     navigate("/");
   };
   return (
@@ -67,19 +78,19 @@ export default function AddQuestion() {
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <label htmlFor="question">New Question:</label>
-            <input
+            <StyledInput
               className="form-control custom-input-size"
               id="questionInput"
               type="text"
               name="question"
               required
               onChange={handleChange}
-            ></input>
+            ></StyledInput>
           </div>
           <div className="form-group">
             <label htmlFor="question">New Answer:</label>
 
-            <textarea
+            <StyledTextarea
               className="form-control custom-input-size"
               id="answerInput"
               type="text"
@@ -89,11 +100,11 @@ export default function AddQuestion() {
               onChange={handleChange}
             />
           </div>
-          <div className="d-flex justify-content-end align-bottom">
+          <SubmitDiv>
             <button className="btn custom-button m-1" type="submit">
               submit question
             </button>
-          </div>
+          </SubmitDiv>
         </form>
       </StyledContainer>
     </div>

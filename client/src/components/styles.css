@@ -39,7 +39,7 @@
 .home-study-button{
     color: #ff7134;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     display: flex;
     justify-content: center;
     background-image: linear-gradient(
@@ -95,9 +95,13 @@
 }
 .custom-button {
     background-color: #000C66;
-    color: #fff1e1;
+    color: white;
     border: none;
     font-family: 'Shantell Sans', cursive;
+}
+.custom-button:hover {
+    background-color: #ff7134;
+
 }
 .custom-font{
     font-family: 'Shantell Sans', cursive;
