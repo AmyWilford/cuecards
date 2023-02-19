@@ -75,7 +75,7 @@ export default function Question() {
         <StyledCard className="img-fluid" id="styledCard">
           <div className="p-3">
             <StyledQuestion className="font-weight-bold">
-              <span id="question"> {question.question}</span>
+              <span id="question" class="custom-font"> {question.question}</span>
             </StyledQuestion>
             <hr></hr>
             <div className="custom-card-spacing">
@@ -87,9 +87,9 @@ export default function Question() {
               <button
                 className="p-2 btn btn-link"
                 value={question._id}
-                id="something"
+                id="edit-question"
               >
-                edit question ✎
+                edit ✎
               </button>
             </Link>
           </div>
@@ -100,7 +100,7 @@ export default function Question() {
         <div className="col-sm-6 custom-alignment">
           <div className={displayClass}>
             <button
-              className="btn custom-button btn-sm mt-2"
+              className="btn custom-button mt-2"
               id="answerbtn"
               onClick={getAnswer}
             >
@@ -112,7 +112,7 @@ export default function Question() {
         <div className="col-sm-6 text-right">
           <div className={displayClass}>
             <button
-              className="btn custom-button btn-sm mt-2"
+              className="btn custom-button mt-2"
               id="newQbtn"
               onClick={getQuestion}
             >
