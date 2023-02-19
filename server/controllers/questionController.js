@@ -3,7 +3,7 @@ const { Question } = require("../models");
 module.exports = {
   // get all questions
   getQuestions(req, res) {
-    Question.find()
+    Question.find().sort({"question":1})
       .then((questions) => res.json(questions))
       .catch((err) => res.status(err));
   },
