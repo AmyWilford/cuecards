@@ -61,7 +61,7 @@ export default function AddQuestion() {
       return;
     });
     setNewQuestion({ question: " ", answer: "" });
-    navigate("/");
+    navigate("/allcards");
   };
   return (
     <div className="container">

@@ -10,9 +10,7 @@
 #add-new {
     border: 2px solid #ff7134;
     border-radius: 100%;
-
-    padding: 10px 15px;
-
+    padding: 08px 15px;
 }
 #add-new:hover{
   border: 2px solid white;
@@ -28,9 +26,6 @@
     color: pink !important;
 }
 
-/* .nav-options .nav-link.active, .navbar-nav .show>.nav-link {
-    color: #F27059;
-} */
 .lightbulb-container{
     border-radius: 50%;
     background-color: #D5EDFA;
