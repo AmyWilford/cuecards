@@ -67,7 +67,7 @@ export default function Update() {
   };
 
   const routeChangeStudy = () => {
-    let path = `/study`;
+    let path = `/allcards`;
     navigate(path);
   };
   useEffect(() => {
