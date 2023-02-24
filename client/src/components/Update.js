@@ -84,7 +84,9 @@ export default function Update() {
           </p>
           <div>
             <div className="form-group">
-              <label htmlFor="updatequestionInput" className="font-weight-bold">question:</label>
+              <label htmlFor="updatequestionInput" className="font-weight-bold">
+                question:
+              </label>
               <input
                 type="text"
                 id="updatequestionInput"
@@ -98,7 +100,9 @@ export default function Update() {
           </div>
           <div>
             <div className="form-group">
-              <label htmlFor="answerInput" className="font-weight-bold">answer:</label>
+              <label htmlFor="answerInput" className="font-weight-bold">
+                answer:
+              </label>
               <textarea
                 type="text"
                 className="form-control custom-input-size"
@@ -112,14 +116,11 @@ export default function Update() {
             </div>
           </div>
           <ButtonDiv className="d-flex justify-content-end">
+            <button className="btn btn-link m-2" onClick={routeChangeStudy}>
+              ⇽ back to cards
+            </button>
             <button type="submit" className="btn custom-button m-2 text-white">
               ✓
-            </button>
-            <button
-              className="btn custom-button m-2"
-              onClick={routeChangeStudy}
-            >
-              keep studying
             </button>
           </ButtonDiv>
         </form>

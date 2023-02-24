@@ -93,17 +93,7 @@ export default function DBQuestion() {
           </div>
         </StyledCard>
       ))}
-      {/* </tbody>
-        </table>
-      </div> */}
-      {/* <div className="d-flex justify-content-end">
-        <button
-          className="btn custom-button m-2sm"
-          onClick={routeChangeNewQuestion}
-        >
-          Add Question
-        </button>
-      </div> */}
+     
     </div>
   );
 }
