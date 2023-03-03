@@ -1,7 +1,12 @@
 // Import required components and dependencies
 import React from "react";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
+const StyledNav = styled.nav`
+  background-color: #ff7134;
+  color: white;
+`;
 
 export default function Footer() {
   // const navigate = useNavigate();
@@ -20,7 +25,7 @@ export default function Footer() {
   //   navigate(path);
   // };
   return (
-    <nav className="navbar fixed-bottom footer justify-content-end custom-footer">
+    <StyledNav className="navbar fixed-bottom footer justify-content-end">
       <div className="d-flex m-2 ">
         <NavLink
           to={"/study"}
@@ -69,6 +74,6 @@ export default function Footer() {
           </button> */}
         </NavLink>
       </div>
-    </nav>
+    </StyledNav>
   );
 }

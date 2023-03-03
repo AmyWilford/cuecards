@@ -9,7 +9,7 @@ const StyledCard = styled.div`
   background-color: #d5edfa;
   border-radius: 5px;
   max-width: 600px;
-  min-width: 85%;
+  min-width: 90%;
   max-height: fit-content;
   min-height: 400px;
   box-shadow: 5px 7px 5px #888888;
@@ -25,8 +25,16 @@ const StyledContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 80px;
+`;
+const StyledEditDiv = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.75rem;
 `;
 
+const StyledQuestionText = styled.span``;
 export default function Question() {
   // Set State for all questions (Fetched from database)
 
@@ -85,17 +93,17 @@ export default function Question() {
         <StyledCard className="img-fluid" id="styledCard">
           <div className="p-3">
             <StyledQuestion className="font-weight-bold">
-              <span id="question" className="custom-font">
+              <StyledQuestionText id="question">
                 {" "}
                 {question.question}
-              </span>
+              </StyledQuestionText>
             </StyledQuestion>
             <hr></hr>
             <div className="custom-card-spacing">
               <p className={answerDisplay}>{answer}</p>
             </div>
           </div>
-          <div id="edit-div">
+          <StyledEditDiv>
             <Link to={`/api/study/${question._id}`}>
               <button
                 className="p-2 btn btn-link"
@@ -105,7 +113,7 @@ export default function Question() {
                 edit ✎
               </button>
             </Link>
-          </div>
+          </StyledEditDiv>
         </StyledCard>
         <div className="row pt-3">
           <div className="col-sm-6 custom-alignment">

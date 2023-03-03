@@ -9,7 +9,6 @@
 .inactive {
     color:white !important;
 }
-
 .active {
     color: #000C66;
 }
@@ -30,76 +29,20 @@
     font-size: 1.3rem;
 }
 #add-new:hover{
-  /* border: 2px solid white; */
   border-radius: 100%;
   box-shadow: 0 0 50px #FFDE59;
 }
 
-.borderless th {
-    border: none;
+/* General Styles */
+
+.container{
+    margin-top: 5rem;
 }
-
-.lightbulb-container{
-    border-radius: 50%;
-    background-color: #D5EDFA;
-    padding: 1rem;
-}
-.home-study-button{
-    color: #ff7134;
-    font-weight: bold;
-    font-size: 1.8rem;
-    display: flex;
-    justify-content: center;
-    background-image: linear-gradient(
-      to right,
-      #FFDE59,
-      #ff7134 50%,
-      #ff7134 50%
-    );
-    background-size: 200% 100%;
-    background-position: -100%;
-    padding: 5px 0;
-    position: relative;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all 0.3s ease-in-out;
-  }
-  #delete-button {
-    background-color: white;
-    opacity: .5;
-    padding: 2px 6px !important;
-    border-radius: 50%;
-    font-size: .75rem;
-  }
-  #delete-button:hover {
-    opacity: 1;
-  }
-  .home-study-button:hover {
-   background-position: 0;
-   cursor:pointer
-  }
-  
-  .home-study-button:hover::before {
-    width:100%;
-  }
-
-
-
-.link-display{
-    display: none;
-}
-/* .custom-shadow {
-    box-shadow: 5px 7px 5px #888888;
-} */
 
 .custom-input-size{
     font-size: 12px;
 }
 
-.custom-margin {
-    margin-bottom:80px;
-}
 .custom-button {
     background-color: #000C66;
     color: white;
@@ -110,24 +53,12 @@
     background-color: #ff7134;
 
 }
-.custom-font{
-    font-family: 'Shantell Sans', cursive;
-}
-#question{ 
-    font-size: 1.3rem;
-}
-.container{
-    margin-top: 5rem;
-}
+
 .custom-icon{
     font-size: 1.5rem;
-
 }
 .form-control {
     border: none;
-}
-.custom-color {
-    color: #373636 ;
 }
 .btn-link{
     color: #373636;
@@ -136,36 +67,6 @@
     text-decoration: none;
     color: #ff7134;
 }
-
-#styledCard {
-position: relative;
-}
-#edit-div{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: .75rem;
-}
-.custom-col-width-edit {
-    width: 15%
-}
-.custom-col-width-question {
-    width: 80%;
-}
-.custom-col-width-delete {
-    width: 5%;
-}
-.custom-footer {
-    background-color: #ff7134;
-    color: white
-}
-.question-container {
-        display: flex;
-    flex-direction: column;
-        align-items: center;
-}
-
-
 
 @media only screen and (max-width: 576px) {
     .custom-alignment {

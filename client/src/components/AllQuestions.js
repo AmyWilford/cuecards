@@ -10,12 +10,37 @@ const StyledCard = styled.div`
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  min-width: 85%;
+  min-width: 90%;
   max-width: 600px;
   min-height: 100px;
   max-height: fit-content;
 `;
 
+const StyledContainer = styled.div`
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledDeleteButton = styled.button`
+  background-color: white;
+  opacity: 0.5;
+  padding: 2px 6px !important;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  color: #373636;
+
+  &:hover {
+    background-color: white;
+
+    opacity: 1;
+  }
+`;
+
+const StyledEditButton = styled.button`
+  color: #373636;
+`;
 export default function DBQuestion() {
   const [allQuestions, setAllQuestions] = useState([]);
 
@@ -55,17 +80,17 @@ export default function DBQuestion() {
   }, []);
 
   return (
-    <div className="container custom-margin question-container">
+    <StyledContainer className="container">
       {allQuestions.map((question, index) => (
         <StyledCard className=" m-2" id="questionId" key={index}>
           <div className="d-flex justify-content-end">
-            <button
-              id="delete-button"
-              className="btn btn-link m-0 custom-color "
+            <StyledDeleteButton
+              // id="delete-button"
+              className="btn btn-link m-0"
               onClick={() => deleteButton(question._id)}
             >
               &#x2715;
-            </button>
+            </StyledDeleteButton>
           </div>
           <div className="d-none">
             <input
@@ -83,17 +108,16 @@ export default function DBQuestion() {
           </p>
           <div className="d-flex justify-content-end">
             <Link to={`/api/study/${question._id}`}>
-              <button
+              <StyledEditButton
                 className="btn btn-link custom-color text-left p-0"
                 value={question._id}
-                id="something"
               >
                 ✎
-              </button>
+              </StyledEditButton>
             </Link>
           </div>
         </StyledCard>
       ))}
-    </div>
+    </StyledContainer>
   );
 }
