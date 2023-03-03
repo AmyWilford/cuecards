@@ -10,6 +10,7 @@ const StyledCard = styled.div`
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
+  min-width: 85%;
   max-width: 600px;
   min-height: 100px;
   max-height: fit-content;
@@ -93,7 +94,6 @@ export default function DBQuestion() {
           </div>
         </StyledCard>
       ))}
-     
     </div>
   );
 }

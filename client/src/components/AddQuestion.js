@@ -3,8 +3,16 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+const StyledCard = styled.div`
   background-color: #d5edfa;
   border-radius: 5px;
+  max-width: 600px;
+  min-width: 85%;
+  max-height: fit-content;
   min-height: 400px;
   box-shadow: 5px 7px 5px #888888;
   padding: 1rem;
@@ -33,7 +41,7 @@ export default function AddQuestion() {
   const navigate = useNavigate();
 
   const routeChangeAllQuestions = () => {
-    let path = `/`;
+    let path = `/allcards`;
     navigate(path);
   };
   const handleChange = (event) => {
@@ -66,46 +74,52 @@ export default function AddQuestion() {
   return (
     <div className="container">
       <StyledContainer>
-        <div className="d-flex justify-content-end">
-          <button
-            className="btn btn-link m-1"
-            type="submit"
-            onClick={routeChangeAllQuestions}
-          >
-            <small> ← back to questions</small>
-          </button>
-        </div>
-        <form onSubmit={handleFormSubmit}>
-          <div className="form-group">
-            <label htmlFor="question" className="font-weight-bold">add a new question:</label>
-            <StyledInput
-              className="form-control custom-input-size"
-              id="questionInput"
-              type="text"
-              name="question"
-              required
-              onChange={handleChange}
-            ></StyledInput>
-          </div>
-          <div className="form-group">
-            <label htmlFor="question" className="font-weight-bold">add the answer:</label>
-
-            <StyledTextarea
-              className="form-control custom-input-size"
-              id="answerInput"
-              type="text"
-              name="answer"
-              rows="4"
-              required
-              onChange={handleChange}
-            />
-          </div>
-          <SubmitDiv>
-            <button className="btn custom-button m-1" type="submit">
-              submit question
+        <StyledCard>
+          <div className="d-flex justify-content-end">
+            <button
+              className="btn btn-link m-1"
+              type="submit"
+              onClick={routeChangeAllQuestions}
+            >
+              <small> ← back to questions</small>
             </button>
-          </SubmitDiv>
-        </form>
+          </div>
+          <form onSubmit={handleFormSubmit}>
+            <div className="form-group">
+              <label htmlFor="question" className="font-weight-bold">
+                add a new question:
+              </label>
+              <StyledInput
+                className="form-control custom-input-size"
+                id="questionInput"
+                type="text"
+                name="question"
+                required
+                onChange={handleChange}
+              ></StyledInput>
+            </div>
+            <div className="form-group">
+              <label htmlFor="question" className="font-weight-bold">
+                add the answer:
+              </label>
+
+              <StyledTextarea
+                className="form-control custom-input-size"
+                id="answerInput"
+                type="text"
+                name="answer"
+                rows="4"
+                required
+                onChange={handleChange}
+              />
+            </div>
+            <SubmitDiv>
+              <button className="btn custom-button m-1" type="submit">
+                submit question
+              </button>
+            </SubmitDiv>
+          </form>
+        </StyledCard>
       </StyledContainer>
     </div>
   );

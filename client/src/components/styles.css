@@ -26,10 +26,11 @@
 #add-new {
     border: 2px solid #ff7134;
     border-radius: 100%;
-    padding: 08px 15px;
+    padding: 04px 13px;
+    font-size: 1.3rem;
 }
 #add-new:hover{
-  border: 2px solid white;
+  /* border: 2px solid white; */
   border-radius: 100%;
   box-shadow: 0 0 50px #FFDE59;
 }

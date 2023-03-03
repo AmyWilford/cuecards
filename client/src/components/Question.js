@@ -8,14 +8,24 @@ import { getRandomQuestion } from "../utils/API";
 const StyledCard = styled.div`
   background-color: #d5edfa;
   border-radius: 5px;
+  max-width: 600px;
+  min-width: 85%;
+  max-height: fit-content;
   min-height: 400px;
   box-shadow: 5px 7px 5px #888888;
   position: relative;
+  justify-self: center;
 `;
 
-const StyledQuestion  = styled.p`
-font-size: 1.1rem;`
+const StyledQuestion = styled.p`
+  font-size: 1.1rem;
+`;
 
+const StyledContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
 
 export default function Question() {
   // Set State for all questions (Fetched from database)
@@ -71,15 +81,18 @@ export default function Question() {
         </button>
       </div> */}
 
-      <div>
+      <StyledContainer>
         <StyledCard className="img-fluid" id="styledCard">
           <div className="p-3">
             <StyledQuestion className="font-weight-bold">
-              <span id="question" className="custom-font"> {question.question}</span>
+              <span id="question" className="custom-font">
+                {" "}
+                {question.question}
+              </span>
             </StyledQuestion>
             <hr></hr>
             <div className="custom-card-spacing">
-              <p className= {answerDisplay}>{answer}</p>
+              <p className={answerDisplay}>{answer}</p>
             </div>
           </div>
           <div id="edit-div">
@@ -94,33 +107,32 @@ export default function Question() {
             </Link>
           </div>
         </StyledCard>
-      </div>
+        <div className="row pt-3">
+          <div className="col-sm-6 custom-alignment">
+            <div className={displayClass}>
+              <button
+                className="btn custom-button mt-2"
+                id="answerbtn"
+                onClick={getAnswer}
+              >
+                see answer
+              </button>
+            </div>
+          </div>
 
-      <div className="row pt-3">
-        <div className="col-sm-6 custom-alignment">
-          <div className={displayClass}>
-            <button
-              className="btn custom-button mt-2"
-              id="answerbtn"
-              onClick={getAnswer}
-            >
-              see answer
-            </button>
+          <div className="col-sm-6 text-right">
+            <div className={displayClass}>
+              <button
+                className="btn custom-button mt-2"
+                id="newQbtn"
+                onClick={getQuestion}
+              >
+                new question →
+              </button>
+            </div>
           </div>
         </div>
-
-        <div className="col-sm-6 text-right">
-          <div className={displayClass}>
-            <button
-              className="btn custom-button mt-2"
-              id="newQbtn"
-              onClick={getQuestion}
-            >
-              new question →
-            </button>
-          </div>
-        </div>
-      </div>
+      </StyledContainer>
     </div>
   );
 }
