@@ -19,7 +19,7 @@ function App() {
         <Route path="/api/study" element={<AddQuestion />} />
         <Route path="/api/study/:id" element={<Update />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

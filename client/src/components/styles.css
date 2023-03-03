@@ -11,10 +11,11 @@
 }
 .active {
     color: #000C66;
+    opacity: 1;
 }
 .active:hover{
     opacity: 1;
-    color: #000C66;
+    color: white;
     text-decoration: none;
 }
 
