@@ -75,7 +75,7 @@ export default function Question() {
         <StyledCard className="img-fluid" id="styledCard">
           <div className="p-3">
             <StyledQuestion className="font-weight-bold">
-              <span id="question" class="custom-font"> {question.question}</span>
+              <span id="question" className="custom-font"> {question.question}</span>
             </StyledQuestion>
             <hr></hr>
             <div className="custom-card-spacing">

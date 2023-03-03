@@ -1,12 +1,28 @@
 /* Navigation Styles - Header & Footer */
 
 .nav-link {
-    color:white !important;
     opacity: .5;
     font-size: 1rem;
     font-weight: bold;
     align-self: center;
 }
+.inactive {
+    color:white !important;
+}
+
+.active {
+    color: #000C66;
+}
+.active:hover{
+    opacity: 1;
+    color: #000C66;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
 #add-new {
     border: 2px solid #ff7134;
     border-radius: 100%;
@@ -20,10 +36,6 @@
 
 .borderless th {
     border: none;
-}
-
-.active {
-    color: pink !important;
 }
 
 .lightbulb-container{
@@ -70,9 +82,8 @@
   .home-study-button:hover::before {
     width:100%;
   }
-.nav-link:hover {
-    opacity: 1;
-}
+
+
 
 .link-display{
     display: none;
@@ -102,7 +113,7 @@
     font-family: 'Shantell Sans', cursive;
 }
 #question{ 
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .container{
     margin-top: 5rem;

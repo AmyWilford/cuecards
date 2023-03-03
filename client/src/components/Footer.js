@@ -1,50 +1,74 @@
 // Import required components and dependencies
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import styled from "styled-components";
 
 export default function Footer() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const routeChangeAllQuestions = () => {
-    let path = `/allcards`;
-    navigate(path);
-  };
-  const routeChangeStudy = () => {
-    let path = `/study`;
-    navigate(path);
-  };
+  // const routeChangeAllQuestions = () => {
+  //   let path = `/allcards`;
+  //   navigate(path);
+  // };
+  // const routeChangeStudy = () => {
+  //   let path = `/study`;
+  //   navigate(path);
+  // };
 
-  const routeChangeAdd = () => {
-    let path = `/api/study`;
-    navigate(path);
-  };
+  // const routeChangeAdd = () => {
+  //   let path = `/api/study`;
+  //   navigate(path);
+  // };
   return (
     <nav className="navbar fixed-bottom footer justify-content-end custom-footer">
       <div className="d-flex m-2 ">
-        <button
-          className="btn btn-link nav-link m-1"
-          type="submit"
-          onClick={routeChangeStudy}
+        <NavLink
+          to={"/study"}
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link inactive"
+          }
         >
           study
-        </button>
-        <button
-          className="btn btn-link nav-link m-1"
-          type="submit"
-          onClick={routeChangeAllQuestions}
+          {/* <button
+            className="btn btn-link nav-link m-1"
+            type="submit"
+            onClick={routeChangeStudy}
+          >
+            study
+          </button> */}
+        </NavLink>
+        <NavLink
+          to={"/allcards"}
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link inactive"
+          }
         >
           view all cards
-        </button>
-        <button
+          {/* <button
+            className="btn btn-link nav-link m-1"
+            type="submit"
+            onClick={routeChangeAllQuestions}
+          >
+            view all cards
+          </button> */}
+        </NavLink>
+        <NavLink
+          to={"/api/study"}
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link inactive"
+          }
           id="add-new"
-          className="btn btn-link nav-link m-1"
-          type="submit"
-          onClick={routeChangeAdd}
         >
           +
-        </button>
+          {/* <button
+            className="btn btn-link nav-link m-1"
+            type="submit"
+            onClick={routeChangeAdd}
+          >
+            +
+          </button> */}
+        </NavLink>
       </div>
     </nav>
   );
