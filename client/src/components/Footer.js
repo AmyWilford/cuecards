@@ -28,7 +28,7 @@ export default function Footer() {
     <StyledNav className="navbar fixed-bottom footer justify-content-end">
       <div className="d-flex m-2 ">
         <NavLink
-          to={"/study"}
+          to="/study"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link inactive"
           }
@@ -43,7 +43,7 @@ export default function Footer() {
           </button> */}
         </NavLink>
         <NavLink
-          to={"/allcards"}
+          to="/allcards"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link inactive"
           }
@@ -58,7 +58,7 @@ export default function Footer() {
           </button> */}
         </NavLink>
         <NavLink
-          to={"/api/study"}
+          to="/api/study"
           className={({ isActive }) =>
             isActive ? "nav-link active" : "nav-link inactive"
           }
