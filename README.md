@@ -49,8 +49,7 @@ This Project was built using:
 - CSS
 
 ## Usage-Installation
-
-To use this site, visit [www.ratethegords.ca](https://cuecards-aw22.herokuapp.com/)
+This site is deployed on Heroku: [visit site](https://cuecards-aw22.herokuapp.com/)
 
 ## Credits
 
