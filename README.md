@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+ <img src="client/public/assets/cuecards-site-readme-banner.png" width="800"  alt="deployed site" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CueCards: Your online study tool
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Description](#Description)
+- [Technologies](#Technologies)
+- [Usage-Installation](#Usage-Installation)
+- [Demo](#Demo)
+- [Credits](#credits)
 
-### `npm start`
+## Description
+Cuecards is an online study tool that allows you to make your own cuecards and quiz you on your understanding of the content. How it works:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ Site users have the option to 
+1. Begin Studying: This prompts randomized questions from the database to be shown to the user on the screen. The 'view answer' button will show the answer in full so that the user can check their knowledge. 
+The 'next question' button will show a new question.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+2. View all Cards: This will show the complete index of questions entered into the database - sorted in alphabetical order
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+3. Add a new question: The user can add a new question at any time. Question entries must be entered with a corresponding answer.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Questions and answer can be editted at any time either from the card index or directly during studying.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+CueCards is a responsive and mobile-friendly MERN stack application.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This concept was conceived during my technical interview preparations. I wanted a place where I could easily collect all potential questions and important facts while also being able to quiz myself on the knowledge. 
 
-### `npm run eject`
+### Next Steps In Development
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Next steps in development include creating individual user accounts with login/logout functionality.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This app is mobile-responsive and is easy to navigate on smaller screens. That said, I would like to explore the possibility of creating a React-Native version of this site specificaly for mobile devices.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This Project was built using:
 
-## Learn More
+- MongoDB
+- Mongoose
+- Node.js
+- Express.js
+- React.js
+- JavaScript & JSX
+- Bootstrap
+- CSS
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage-Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To use this site, visit [www.ratethegords.ca](https://cuecards-aw22.herokuapp.com/)
 
-### Code Splitting
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Built and Designed by Amy Wilford
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

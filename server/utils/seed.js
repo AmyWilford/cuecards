@@ -1,6 +1,3 @@
-// const {
-//   default: QuestionList,
-// } = require("../../client/src/components/QuestionList");
 const db = require("../config/connection");
 const { Question } = require("../models");
 
